@@ -14,6 +14,8 @@
             </Border.Effect>
             <StackPanel>
                 <TextBlock Text="Авторизация" FontSize="30" FontWeight="Bold" Margin="0 0 0 20" />
+                <TextBox materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                <PasswordBox materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
                 <Grid Margin="0 0 0 20">
                     <Button HorizontalAlignment="Center" Content="Вход" Style="{StaticResource MaterialDesignFlatButton}"/>
                 </Grid>
