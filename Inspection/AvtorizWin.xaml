@@ -7,17 +7,17 @@
         xmlns:local="clr-namespace:Inspection"
         mc:Ignorable="d"
         Title="Авторизация" Height="600" Width="1000">
-    <Grid Background="#5ED0BD">
+    <Grid Background="#FFB5A4FC">
         <Border MinWidth="400" Margin="15" Background="White" VerticalAlignment="Center" Padding="30" MaxWidth="550" CornerRadius="20">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"></DropShadowEffect>
             </Border.Effect>
             <StackPanel>
-                <TextBlock Text="Авторизация" FontSize="30" FontWeight="Bold" Margin="0 0 0 20" />
-                <TextBox materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                <PasswordBox materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
-                <Grid Margin="0 0 0 20">
-                    <Button HorizontalAlignment="Center" Content="Вход" Style="{StaticResource MaterialDesignFlatButton}"/>
+                <TextBlock Text="Авторизация" FontSize="48" FontWeight="Bold" Margin="0 0 0 20" HorizontalAlignment="Center" FontFamily="Impact" />
+                <TextBox materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFilledTextBox}" FontFamily="Dubai" FontSize="14"/>
+                <PasswordBox materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFilledPasswordBox}" FontSize="14" FontFamily="Dubai"/>
+                <Grid Margin="0 20 0 0">
+                    <Button HorizontalAlignment="Center" Content="Вход" Style="{StaticResource MaterialDesignFlatDarkBgButton}" Cursor="Hand" FontFamily="Microsoft YaHei UI" FontSize="18"/>
                 </Grid>
             </StackPanel>
         </Border>
