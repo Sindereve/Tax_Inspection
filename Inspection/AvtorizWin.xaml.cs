@@ -12,17 +12,30 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Media.Animation;
 
 namespace Inspection
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AvtorizWin : Window
     {
-        public MainWindow()
-        {
+        public AvtorizWin(){
             InitializeComponent();
+        }
+
+        private void Button_Avtoriz_Click(object sender, RoutedEventArgs e){
+            if (boxLogin.Text == "111" && boxPassword.Password == "111"){
+                MainWin mainWin = new MainWin();
+                mainWin.Show();
+                this.Hide();
+            }
+            else if (boxLogin.Text != "111"){
+                boxLogin.ToolTip = "Это поле введено не правильно!";
+                boxLogin.Background = Brushes.DarkRed;
+            }
+
         }
     }
 }
