@@ -12,13 +12,21 @@
         <Border x:Name="topBorder" Background="White" VerticalAlignment="Top" >
 
             <Grid>
-                <Grid HorizontalAlignment="Right" Width="{Binding ElementName=MainGrid, Path=ActualWidth}" Height="{Binding ElementName=MainGrid, Path=ActualHeight}">
-                    <Button
+                <Grid HorizontalAlignment="Right" VerticalAlignment="Top">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Content="Кнопка 1" Grid.Column="0"/>
+                    <Button Content="Кнопка 2" Grid.Column="1"/>
+                    
+                    <Button Grid.Column="2"
                         Height="{Binding ElementName=MainGrid, Path=ActualWidth}"
                         materialDesign:ButtonAssist.CornerRadius="0 0 25 25"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                         Style="{StaticResource MaterialDesignRaisedSecondaryButton}" Click="Exit_Button_Click"
-                        ToolTip="MaterialDesignRaisedSecondaryButton with Round Top Corners">
+                        ToolTip="MaterialDesignRaisedSecondaryButton with Round Top Corners">       
                         <TextBlock Text="Выход" />
                     </Button>
                 </Grid>

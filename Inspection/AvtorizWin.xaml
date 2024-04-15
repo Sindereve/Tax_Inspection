@@ -15,6 +15,7 @@
             <StackPanel>
                 
                 <TextBlock Text="Авторизация" FontSize="48" FontWeight="Bold" Margin="0 0 0 20" HorizontalAlignment="Center" FontFamily="Impact" />
+                <TextBlock x:Name="errorText"  Text="Не правильно введены данные!" FontSize="22" FontWeight="Bold" Margin="0 0 0 20" HorizontalAlignment="Center" Foreground="#FFAF2C2C" Visibility="Collapsed" />
                 <TextBox x:Name="boxLogin" materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFilledTextBox}" FontFamily="Dubai" FontSize="14"/>
                 <PasswordBox x:Name="boxPassword" materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFilledPasswordBox}" FontSize="14" FontFamily="Dubai"/>
                 

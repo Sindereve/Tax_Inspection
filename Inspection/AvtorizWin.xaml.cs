@@ -31,9 +31,8 @@ namespace Inspection
                 mainWin.Show();
                 this.Hide();
             }
-            else if (boxLogin.Text != "111"){
-                boxLogin.ToolTip = "Это поле введено не правильно!";
-                boxLogin.Background = Brushes.DarkRed;
+            else if (boxLogin.Text != "111" ){
+                errorText.Visibility = Visibility.Visible;
             }
 
         }
