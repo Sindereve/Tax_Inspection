@@ -66,7 +66,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="AvtorizWin.xaml">
+    <Page Include="Avtori.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Win.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -74,19 +78,15 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="AvtorizWin.xaml.cs">
-      <DependentUpon>AvtorizWin.xaml</DependentUpon>
+    <Compile Include="Avtori.xaml.cs">
+      <DependentUpon>Avtori.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Win.xaml.cs">
+      <DependentUpon>Win.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MainWin.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainWin.xaml.cs">
-      <DependentUpon>MainWin.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

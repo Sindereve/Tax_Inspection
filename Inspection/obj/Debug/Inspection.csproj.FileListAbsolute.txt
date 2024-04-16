@@ -35,13 +35,11 @@ C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\bin\Debug\Mater
 C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\bin\Debug\Microsoft.Xaml.Behaviors.pdb
 C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\bin\Debug\Microsoft.Xaml.Behaviors.xml
 C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\Inspection.csproj.AssemblyReference.cache
-C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\AvtorizWin.g.cs
 C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\App.g.cs
 C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\Inspection_Content.g.cs
 C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\Inspection_MarkupCompile.cache
 C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\Inspection_MarkupCompile.lref
 C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\App.baml
-C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\AvtorizWin.baml
 C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\Inspection.g.resources
 C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\Inspection.Properties.Resources.resources
 C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\Inspection.csproj.GenerateResource.cache
@@ -49,5 +47,7 @@ C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\Inspe
 C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\Inspection.csproj.CopyComplete
 C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\Inspection.exe
 C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\Inspection.pdb
-C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\MainWin.g.cs
-C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\MainWin.baml
+C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\Avtori.g.cs
+C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\Avtori.baml
+C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\Win.g.cs
+C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\Win.baml

@@ -19,22 +19,11 @@ namespace Inspection
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    public partial class AvtorizWin : Window
+    public partial class Win : Window
     {
-        public AvtorizWin(){
+        public Win(){
             InitializeComponent();
-        }
-
-        private void Button_Avtoriz_Click(object sender, RoutedEventArgs e){
-            if (boxLogin.Text == "111" && boxPassword.Password == "111"){
-                MainWin mainWin = new MainWin();
-                mainWin.Show();
-                this.Hide();
-            }
-            else if (boxLogin.Text != "111" ){
-                errorText.Visibility = Visibility.Visible;
-            }
-
+            MainFrame.Content = new Avtori();
         }
     }
 }
