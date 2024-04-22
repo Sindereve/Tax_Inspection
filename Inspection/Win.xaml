@@ -7,5 +7,5 @@
         xmlns:local="clr-namespace:Inspection"
         mc:Ignorable="d"
         Title="Авторизация" WindowStyle="None" WindowState="Maximized" Height="574" Width="1063">
-    <Frame x:Name="MainFrame"/>
+    <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" JournalOwnership="OwnsJournal"/>
 </Window>

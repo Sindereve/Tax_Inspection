@@ -47,7 +47,9 @@ C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\Inspe
 C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\Inspection.csproj.CopyComplete
 C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\Inspection.exe
 C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\Inspection.pdb
-C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\Avtori.g.cs
-C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\Avtori.baml
 C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\Win.g.cs
 C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\Win.baml
+C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\AvtoriPage.g.cs
+C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\MainPage.g.cs
+C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\AvtoriPage.baml
+C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\MainPage.baml

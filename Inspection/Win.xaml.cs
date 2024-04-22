@@ -23,7 +23,7 @@ namespace Inspection
     {
         public Win(){
             InitializeComponent();
-            MainFrame.Content = new Avtori();
+            MainFrame.Content = new AvtoriPage();
         }
     }
 }

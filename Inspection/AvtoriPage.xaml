@@ -1,0 +1,86 @@
+﻿<Page x:Class="Inspection.AvtoriPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:Inspection"
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="1080"
+      Title="Avtori">
+
+    <!-- основной грид -->
+    <Grid Background="#6a8db1">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="30*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="25*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="25*"/>
+        </Grid.ColumnDefinitions>
+
+        <Button
+            Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Top"
+              Content="X"
+              IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+              Style="{StaticResource MaterialDesignFlatDarkBgButton}"
+              ToolTip="MaterialDesignFlatDarkButton" Background="#FFDC0303" BorderBrush="#FF2F0101" Click="ExitButton_Click" Height="32" Width="41" />
+
+        <!-- Центральная панель для авторизации -->
+
+
+        <Border x:Name="MyBorder" Grid.Row="1" Grid.Column="1" 
+            Background="White" BorderBrush="DarkGray" BorderThickness="1" CornerRadius="20" Padding="20">
+            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MaxWidth="{Binding ActualWidth, ElementName=MyBorder}" MaxHeight="{Binding ActualHeight, ElementName=MyBorder}" Cursor="">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20*" x:Name="SizeGrid"/>
+                    <RowDefinition Height="20*"/>
+                    <RowDefinition Height="20*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="20*"/>
+                </Grid.RowDefinitions>
+
+                <Viewbox Grid.Row="0" >
+                    <TextBlock Grid.Row="0" Text="Авторизация" FontFamily="Arial Black" 
+                    FontWeight="Bold" TextAlignment="Center"/>
+                </Viewbox>
+
+                <!-- Поля для ввода логина и пароля -->
+                <Viewbox Grid.Row="1">
+                    <TextBox  x:Name="txtUsername"
+                        MinWidth="300"
+                        materialDesign:TextFieldAssist.HasClearButton="True" materialDesign:HintAssist.Hint="Login" 
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                </Viewbox>
+
+                <Viewbox Grid.Row="2" >
+                    <PasswordBox Grid.Row="2" x:Name="txtPassword" 
+                                 MinWidth="300"
+                                 materialDesign:HintAssist.Hint="Password"
+                                 materialDesign:TextFieldAssist.HasClearButton="True" 
+                                 IsEnabled="{Binding IsChecked, ElementName=RevealPasswordFilledEnabled}"
+                                 Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
+                </Viewbox>
+
+                <Grid Grid.Row="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="10*"/>
+                    </Grid.ColumnDefinitions>
+                    <Viewbox Grid.Column="1" Stretch="Fill">
+                        <Button  Content="Вход" HorizontalAlignment="Center" Click="AvtoriButton_Click"
+                                 materialDesign:RippleAssist.Feedback="#DD000000"
+                                 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                 Style="{StaticResource MaterialDesignRaisedSecondaryButton}"
+                                 ToolTip="Resource name: MaterialDesignRaisedSecondaryButton" />
+                    </Viewbox>
+                </Grid>
+            </Grid>
+        </Border>
+
+    </Grid>
+</Page>
