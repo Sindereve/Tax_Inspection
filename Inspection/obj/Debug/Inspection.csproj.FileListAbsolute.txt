@@ -21,8 +21,6 @@ C:\Users\sinde\Desktop\Inspection\Inspection\bin\Debug\Microsoft.Xaml.Behaviors.
 C:\Users\sinde\Desktop\Inspection\Inspection\bin\Debug\Microsoft.Xaml.Behaviors.xml
 C:\Users\sinde\Desktop\Inspection\Inspection\obj\Debug\App.baml
 C:\Users\sinde\Desktop\Inspection\Inspection\obj\Debug\Inspection.csproj.CopyComplete
-C:\Users\sinde\Desktop\Inspection\Inspection\obj\Debug\AvtorizWin.g.cs
-C:\Users\sinde\Desktop\Inspection\Inspection\obj\Debug\AvtorizWin.baml
 C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\bin\Debug\Inspection.exe.config
 C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\bin\Debug\Inspection.exe
 C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\bin\Debug\Inspection.pdb
@@ -53,3 +51,10 @@ C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\Avtor
 C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\MainPage.g.cs
 C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\AvtoriPage.baml
 C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\MainPage.baml
+C:\Users\sinde\Desktop\Inspection\Inspection\obj\Debug\AvtoriPage.g.cs
+C:\Users\sinde\Desktop\Inspection\Inspection\obj\Debug\MainPage.g.cs
+C:\Users\sinde\Desktop\Inspection\Inspection\obj\Debug\Win.g.cs
+C:\Users\sinde\Desktop\Inspection\Inspection\obj\Debug\Inspection_Content.g.cs
+C:\Users\sinde\Desktop\Inspection\Inspection\obj\Debug\AvtoriPage.baml
+C:\Users\sinde\Desktop\Inspection\Inspection\obj\Debug\MainPage.baml
+C:\Users\sinde\Desktop\Inspection\Inspection\obj\Debug\Win.baml

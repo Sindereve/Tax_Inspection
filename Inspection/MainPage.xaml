@@ -9,7 +9,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="MainPage">
     <!-- основной грид -->
-    <Grid Background="#FFDEF9F9">
+    <Grid Background="#6a8db1">
         <Grid.RowDefinitions>
             <RowDefinition Height="20*"/>
             <RowDefinition Height="60*"/>
@@ -36,5 +36,6 @@
                 </Grid>
             </Border>
         </StackPanel>
+
     </Grid>
 </Page>

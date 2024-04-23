@@ -10,7 +10,7 @@
       Title="Avtori">
 
     <!-- основной грид -->
-    <Grid Background="#6a8db1">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30*"/>
             <RowDefinition Height="40*"/>
@@ -62,21 +62,27 @@
                                  materialDesign:HintAssist.Hint="Password"
                                  materialDesign:TextFieldAssist.HasClearButton="True" 
                                  IsEnabled="{Binding IsChecked, ElementName=RevealPasswordFilledEnabled}"
-                                 Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
+                                 Style="{StaticResource MaterialDesignFloatingHintRevealPasswordBox}"/>
                 </Viewbox>
 
                 <Grid Grid.Row="4">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="5*"/>
+                        <RowDefinition Height="30*"/>
+                        <RowDefinition Height="5*"/>
+                    </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="10*"/>
-                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="15*"/>
                         <ColumnDefinition Width="10*"/>
                     </Grid.ColumnDefinitions>
-                    <Viewbox Grid.Column="1" Stretch="Fill">
-                        <Button  Content="Вход" HorizontalAlignment="Center" Click="AvtoriButton_Click"
+                    <Viewbox Grid.Column="1" Grid.Row="1" Stretch="Fill">
+                        <Button Content="Вход" HorizontalAlignment="Center" Click="AvtoriButton_Click"
                                  materialDesign:RippleAssist.Feedback="#DD000000"
+                                 FontSize="20"
                                  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                                 Style="{StaticResource MaterialDesignRaisedSecondaryButton}"
-                                 ToolTip="Resource name: MaterialDesignRaisedSecondaryButton" />
+                                 Style="{StaticResource MaterialDesignRaisedSecondaryButton}" 
+                                 ToolTip="Resource name: MaterialDesignRaisedSecondaryButton" FontFamily="Times New Roman" FontWeight="Normal" />
                     </Viewbox>
                 </Grid>
             </Grid>
