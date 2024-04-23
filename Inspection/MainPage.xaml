@@ -6,36 +6,81 @@
       xmlns:local="clr-namespace:Inspection"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="1080" d:DesignWidth="1920"
       Title="MainPage">
     <!-- основной грид -->
-    <Grid Background="#6a8db1">
+    <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="20*"/>
-            <RowDefinition Height="60*"/>
-            <RowDefinition Height="20*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="90*"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="10*"/>
-            <ColumnDefinition Width="80*"/>
-            <ColumnDefinition Width="10*"/>
-        </Grid.ColumnDefinitions>
+        
 
-        <Button
-        Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Top"
-          Content="X"
-          IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-          Style="{StaticResource MaterialDesignFlatDarkBgButton}"
-          ToolTip="MaterialDesignFlatDarkButton" Background="#FFDC0303" BorderBrush="#FF2F0101" Click="ExitButton_Click" Height="32" Width="41" />
+        <Grid Grid.Row="0" Grid.ColumnSpan="2">
+            <materialDesign:ColorZone Padding="16" Mode="PrimaryMid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
-        <!-- Центральная панель для авторизации -->
-        <StackPanel Grid.Row="0" Grid.Column="1">
-            <Border Background="White" BorderBrush="DarkGray" BorderThickness="1" CornerRadius="20" Padding="20">
                 <Grid>
-                    <TextBlock Grid.Row="0" Text="Главная страница" Margin="5" FontFamily="Bahnschrift SemiCondensed" FontSize="36" FontWeight="Bold" TextAlignment="Center"/>
-                </Grid>
-            </Border>
-        </StackPanel>
+                    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Viewbox>
+                            <TextBlock DockPanel.Dock="Left" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                                   Text="Главная страница" />
+                        </Viewbox>
+                    </Grid>
 
+                    
+                    <Grid HorizontalAlignment="Right" VerticalAlignment="Stretch">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" HorizontalAlignment="Right" Background="Red" Click="ChangeThemeButton_Click"/>
+                        <materialDesign:PopupBox Grid.Column="1" PlacementMode="BottomAndAlignRightEdges">
+                            <ListBox>
+                                <ListBoxItem PreviewMouseDown="ListBoxItem_PreviewMouseDown">
+                                    <TextBlock Text="Выход из пользователя"/>
+                                </ListBoxItem>
+                                <ListBoxItem PreviewMouseDown="ListBoxItem_PreviewMouseDown">
+                                    <TextBlock Text="Выход"/>
+                                </ListBoxItem>
+                            </ListBox>
+                        </materialDesign:PopupBox>
+                    </Grid>
+                </Grid>
+                
+            </materialDesign:ColorZone>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <materialDesign:Card>
+                <TabControl materialDesign:NavigationRailAssist.ShowSelectionBackground="True" SnapsToDevicePixels="True" Style="{StaticResource MaterialDesignNavigationRailTabControl}" TabStripPlacement="Left">       
+                    <TabItem>
+                        <TabItem.Header>
+                            <StackPanel Width="auto" Height="auto">
+                                <materialDesign:PackIcon Width="24" Height="24" HorizontalAlignment="Center" Kind="Magnify"/>
+                                <TextBlock HorizontalAlignment="Center" Text="Поиск" />
+                            </StackPanel>
+                        </TabItem.Header>
+                        <StackPanel>
+                            <Frame/>
+                        </StackPanel>
+                    </TabItem>
+
+                    <TabItem>
+                        <TabItem.Header>
+                            <StackPanel Width="auto" Height="auto">
+                                <materialDesign:PackIcon Width="24" Height="24" HorizontalAlignment="Center" Kind="Magnify"/>
+                                <TextBlock HorizontalAlignment="Center" Text="Поиск" />
+                            </StackPanel>
+                        </TabItem.Header>
+                        <StackPanel>
+                            <Frame/>
+                        </StackPanel>
+                    </TabItem>
+
+                </TabControl>
+            </materialDesign:Card>
+        </Grid>
+        
+        
     </Grid>
 </Page>
