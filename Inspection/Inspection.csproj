@@ -86,9 +86,13 @@
     <Compile Include="AvtoriPage.xaml.cs">
       <DependentUpon>AvtoriPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\DelegateCommand.cs" />
+    <Compile Include="Helpers\NotifyPropertyChangeExtension.cs" />
+    <Compile Include="Helpers\ObservableObject.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\PalletViewModel.cs" />
     <Compile Include="Win.xaml.cs">
       <DependentUpon>Win.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -123,6 +127,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resourse\" />
+    <Folder Include="View\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.5.0.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.5.0.0\build\MaterialDesignThemes.targets')" />
