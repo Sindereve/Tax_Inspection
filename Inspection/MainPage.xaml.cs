@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using static MaterialDesignThemes.Wpf.Theme.ToolBar;
+using Inspection.Helpers;
 
 
 
@@ -30,10 +31,7 @@ namespace Inspection
         }
 
         //Выход в окно авторизации
-        private void ExitInAvtori_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new AvtoriPage()); ;
-        }
+        
 
 
         //Обработка событий из listBoxItem
@@ -54,8 +52,8 @@ namespace Inspection
                 // Выполнение действий в зависимости от текста
                 switch (text)
                 {
-                    case "Выход из пользователя":
-                        // Действия для "Выход из пользователя"
+                    case "Сменить пользователя":
+                        // Действия для "Смена пользователя"
                         ExitInAvtori_Click(sender, e);
                         break;
                     case "Выход":
@@ -69,12 +67,31 @@ namespace Inspection
             }
         }
 
+        //смена пользователя
+        private void ExitInAvtori_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AvtoriPage()); ;
+        }
+
         //Выход из приложения
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
 
+
+        //изменение темы
+        private void ToggleThemeButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Инвертируем текущее состояние темы (светлая <-> тёмная)
+            matDesWpfThemeChanger.IsDarkThemeEnabled = !matDesWpfThemeChanger.IsDarkThemeEnabled;
+
+            // Применяем выбранную тему
+            matDesWpfThemeChanger.ApplyTheme(matDesWpfThemeChanger.IsDarkThemeEnabled);
+        }
+
+
+        
 
     }
 }

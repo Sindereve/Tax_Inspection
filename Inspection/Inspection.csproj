@@ -87,6 +87,7 @@
       <DependentUpon>AvtoriPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Helpers\DelegateCommand.cs" />
+    <Compile Include="Helpers\matDesWpfThemeChanger.cs" />
     <Compile Include="Helpers\NotifyPropertyChangeExtension.cs" />
     <Compile Include="Helpers\ObservableObject.cs" />
     <Compile Include="MainPage.xaml.cs">

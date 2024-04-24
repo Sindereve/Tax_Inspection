@@ -25,5 +25,7 @@ namespace Inspection
             InitializeComponent();
             MainFrame.Content = new AvtoriPage();
         }
+
+        
     }
 }

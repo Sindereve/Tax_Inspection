@@ -33,11 +33,20 @@
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <Button Grid.Column="0" HorizontalAlignment="Right" Background="Red" Click="ChangeThemeButton_Click"/>
+                        
+                        <Button IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                Style="{StaticResource MaterialDesignFloatingActionSecondaryButton}"
+                                ToolTip="MaterialDesignFloatingActionSecondaryButton">
+                            <Viewbox>
+                                <materialDesign:PackIcon VerticalAlignment="Center"
+                                Kind="Alarm" Margin="5"/>
+                            </Viewbox>
+
+                        </Button>
                         <materialDesign:PopupBox Grid.Column="1" PlacementMode="BottomAndAlignRightEdges">
                             <ListBox>
                                 <ListBoxItem PreviewMouseDown="ListBoxItem_PreviewMouseDown">
-                                    <TextBlock Text="Выход из пользователя"/>
+                                    <TextBlock Text="Сменить пользователя"/>
                                 </ListBoxItem>
                                 <ListBoxItem PreviewMouseDown="ListBoxItem_PreviewMouseDown">
                                     <TextBlock Text="Выход"/>
