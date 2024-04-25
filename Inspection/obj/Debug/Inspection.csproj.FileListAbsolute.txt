@@ -47,10 +47,6 @@ C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\Inspe
 C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\Inspection.pdb
 C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\Win.g.cs
 C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\Win.baml
-C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\AvtoriPage.g.cs
-C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\MainPage.g.cs
-C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\AvtoriPage.baml
-C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\MainPage.baml
 C:\Users\sinde\Desktop\Inspection\Inspection\obj\Debug\AvtoriPage.g.cs
 C:\Users\sinde\Desktop\Inspection\Inspection\obj\Debug\MainPage.g.cs
 C:\Users\sinde\Desktop\Inspection\Inspection\obj\Debug\Win.g.cs
@@ -58,3 +54,9 @@ C:\Users\sinde\Desktop\Inspection\Inspection\obj\Debug\Inspection_Content.g.cs
 C:\Users\sinde\Desktop\Inspection\Inspection\obj\Debug\AvtoriPage.baml
 C:\Users\sinde\Desktop\Inspection\Inspection\obj\Debug\MainPage.baml
 C:\Users\sinde\Desktop\Inspection\Inspection\obj\Debug\Win.baml
+C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\PageApp\AvtoriPage.g.cs
+C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\PageApp\MainPage.g.cs
+C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\PageApp\SearchPage.g.cs
+C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\PageApp\AvtoriPage.baml
+C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\PageApp\MainPage.baml
+C:\Users\Andrey\Desktop\курсачи\Tax_Inspection\Inspection\obj\Debug\PageApp\SearchPage.baml

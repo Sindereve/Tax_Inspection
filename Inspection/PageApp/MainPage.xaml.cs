@@ -1,6 +1,7 @@
 ﻿using System;
 using MaterialDesignThemes.Wpf;
 using System.Collections.Generic;
+
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,10 +16,11 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using static MaterialDesignThemes.Wpf.Theme.ToolBar;
 using Inspection.Helpers;
+using Inspection.PageApp;
 
 
 
-namespace Inspection
+namespace Inspection.PageApp
 {
     /// <summary>
     /// Логика взаимодействия для MainPage.xaml
@@ -28,10 +30,10 @@ namespace Inspection
         public MainPage()
         {
             InitializeComponent();
+            this.Background = MainMenu.Background;
+            searchPage.Source = new Uri("SearchPage.xaml", UriKind.Relative); ;
         }
 
-        //Выход в окно авторизации
-        
 
 
         //Обработка событий из listBoxItem
@@ -85,9 +87,13 @@ namespace Inspection
         {
             // Инвертируем текущее состояние темы (светлая <-> тёмная)
             matDesWpfThemeChanger.IsDarkThemeEnabled = !matDesWpfThemeChanger.IsDarkThemeEnabled;
-
+            // Изменяем иконку
+            if (this.ThemeButtonIcon.Kind == PackIconKind.Lamp) this.ThemeButtonIcon.Kind = PackIconKind.LampOutline;
+            else this.ThemeButtonIcon.Kind = PackIconKind.Lamp;
             // Применяем выбранную тему
             matDesWpfThemeChanger.ApplyTheme(matDesWpfThemeChanger.IsDarkThemeEnabled);
+            this.Background = MainMenu.Background;
+
         }
 
 

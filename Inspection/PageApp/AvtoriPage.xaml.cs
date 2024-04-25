@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Inspection
+namespace Inspection.PageApp
 {
     /// <summary>
     /// Логика взаимодействия для Avtori.xaml

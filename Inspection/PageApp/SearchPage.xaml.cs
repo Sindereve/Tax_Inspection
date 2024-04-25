@@ -12,22 +12,25 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Windows.Media.Animation;
-using Inspection.PageApp;
+using Inspection.Date;
+using static MaterialDesignThemes.Wpf.Theme;
 
-
-namespace Inspection
+namespace Inspection.PageApp
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для SearchPage.xaml
     /// </summary>
-    public partial class Win : Window
+    public partial class SearchPage : Page
     {
-        public Win(){
+        public SearchPage()
+        {
             InitializeComponent();
-            MainFrame.Content = new AvtoriPage();
         }
 
-        
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Person person = new Person();
+            this.myDataGrid.ItemsSource = person.dataSet();
+        }
     }
 }

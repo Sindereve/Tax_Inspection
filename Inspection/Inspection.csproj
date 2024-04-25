@@ -67,11 +67,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="AvtoriPage.xaml">
+    <Page Include="PageApp\AvtoriPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainPage.xaml">
+    <Page Include="PageApp\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageApp\SearchPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -83,15 +87,19 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="AvtoriPage.xaml.cs">
+    <Compile Include="Date\Data.cs" />
+    <Compile Include="PageApp\AvtoriPage.xaml.cs">
       <DependentUpon>AvtoriPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Helpers\DelegateCommand.cs" />
     <Compile Include="Helpers\matDesWpfThemeChanger.cs" />
     <Compile Include="Helpers\NotifyPropertyChangeExtension.cs" />
     <Compile Include="Helpers\ObservableObject.cs" />
-    <Compile Include="MainPage.xaml.cs">
+    <Compile Include="PageApp\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageApp\SearchPage.xaml.cs">
+      <DependentUpon>SearchPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\PalletViewModel.cs" />
     <Compile Include="Win.xaml.cs">
@@ -117,7 +125,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="packages.config" />
+    <None Include="PageApp\packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

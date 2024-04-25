@@ -1,0 +1,93 @@
+﻿<Page x:Class="Inspection.PageApp.SearchPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Inspection"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Title="SearchPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="46*"/>
+            <ColumnDefinition Width="705*"/>
+            <ColumnDefinition Width="46*"/>
+        </Grid.ColumnDefinitions>
+
+        <materialDesign:Card Grid.Column="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="90*" />
+                </Grid.RowDefinitions>
+
+                <materialDesign:Card Grid.Row="0" Width="Auto" Height="Auto">
+                    <StackPanel>
+                        <Viewbox MaxHeight="100">
+                            <Grid Cursor="">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBox Grid.Column="0" materialDesign:HintAssist.FloatingScale="0.50" 
+                                 materialDesign:HintAssist.Hint="Поиск" 
+                                 materialDesign:HintAssist.FloatingHintHorizontalAlignment="Center" 
+                                 materialDesign:TextFieldAssist.TextBoxViewMargin="1 0 1 0"
+                                 materialDesign:TextFieldAssist.HasLeadingIcon="True"
+                                 materialDesign:TextFieldAssist.LeadingIcon="AccountSearch"
+                                 HorizontalAlignment="Center" VerticalAlignment="Center"
+                                 MinWidth="200" 
+                                 HorizontalContentAlignment="Center"
+                                 Margin="5"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+
+                                <Button Grid.Column="1" Margin="10" Background="Transparent" Click="Button_Click">
+                                    <materialDesign:PackIcon Kind="Magnify" />
+                                    <Button.Triggers>
+                                        <EventTrigger RoutedEvent="Button.Click">
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" To="LightBlue" Duration="0:0:0.1"/>
+                                                    <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" To="Transparent" BeginTime="0:0:0.1" Duration="0:0:0.1"/>
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+                                    </Button.Triggers>
+                                </Button>
+
+                            </Grid>
+                        </Viewbox>
+
+                        <Expander Grid.Row="1" HorizontalAlignment="Stretch" materialDesign:ExpanderAssist.ExpanderButtonPosition="End" >
+                            
+                            <Expander.Header>
+                                <TextBlock Text="Настройки поиска" HorizontalAlignment="Center" Margin="10,0,0,0"  />
+                            </Expander.Header>
+                            
+                            <StackPanel Margin="24,8,24,16" Orientation="Vertical" >
+                                <TextBlock Text="сюда пихаем кнопки :) " HorizontalAlignment="Center" />
+                            </StackPanel>
+                            
+                        </Expander>
+                        
+                    </StackPanel>
+                </materialDesign:Card>
+
+                <DataGrid Grid.Row="1" x:Name="myDataGrid"
+                          
+                          Background="{DynamicResource PrimaryHueDarkBrush}" 
+                          materialDesign:DataGridAssist.SelectedCellBorderBrush="Crimson"
+                          IsReadOnly="True" 
+                          SelectionMode="Extended" SelectionUnit="Cell"
+                          materialDesign:DataGridAssist.CellPadding="4 2 2 2"
+                          materialDesign:DataGridAssist.ColumnHeaderPadding="4 2 2 2"
+                          CanUserAddRows="False" 
+                          CanUserSortColumns="True" />
+            </Grid>
+        </materialDesign:Card>
+        
+    </Grid>
+</Page>
