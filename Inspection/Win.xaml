@@ -6,6 +6,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Inspection"
         mc:Ignorable="d"
-        Title="Авторизация" WindowStyle="None" WindowState="Maximized" Height="574" Width="1063">
+        Title="Авторизация" WindowStyle="None" WindowState="Maximized">
     <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" JournalOwnership="OwnsJournal"/>
 </Window>

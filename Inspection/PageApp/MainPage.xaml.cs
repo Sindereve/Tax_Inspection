@@ -1,23 +1,11 @@
 ﻿using System;
 using MaterialDesignThemes.Wpf;
-using System.Collections.Generic;
-
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
-using static MaterialDesignThemes.Wpf.Theme.ToolBar;
 using Inspection.Helpers;
-using Inspection.PageApp;
-
+using Inspection.Date;
 
 
 namespace Inspection.PageApp
@@ -27,14 +15,23 @@ namespace Inspection.PageApp
     /// </summary>
     public partial class MainPage : Page
     {
+
+        private DataBase db; // Поле для хранения экземпляра класса DataBase
         public MainPage()
         {
             InitializeComponent();
-            this.Background = MainMenu.Background;
-            searchPage.Source = new Uri("SearchPage.xaml", UriKind.Relative); ;
+            // Задаём цвет согласно темы
+            // TODO MainMenu is no longer supported. Use MenuStrip instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+                        this.Background = MainMenu.Background;
+            // Открываем стр поиска
+            searchPage.Source = new Uri("SearchPage.xaml", UriKind.Relative);
+            // Получаем экземпляр класса DataBase
+            db = DataBase.GetInstance();
+            // Прописываем log юзера
+            loginUser.Text = UserWorking.Login;
         }
 
-
+        
 
         //Обработка событий из listBoxItem
         private void ListBoxItem_PreviewMouseDown(object sender, MouseButtonEventArgs e)
@@ -82,7 +79,7 @@ namespace Inspection.PageApp
         }
 
 
-        //изменение темы
+        //нажатие на изменение 
         private void ToggleThemeButton_Click(object sender, RoutedEventArgs e)
         {
             // Инвертируем текущее состояние темы (светлая <-> тёмная)
@@ -92,9 +89,11 @@ namespace Inspection.PageApp
             else this.ThemeButtonIcon.Kind = PackIconKind.Lamp;
             // Применяем выбранную тему
             matDesWpfThemeChanger.ApplyTheme(matDesWpfThemeChanger.IsDarkThemeEnabled);
+            // TODO MainMenu is no longer supported. Use MenuStrip instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
             this.Background = MainMenu.Background;
-
         }
+
+
 
 
         

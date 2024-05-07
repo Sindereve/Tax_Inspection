@@ -6,69 +6,278 @@
       xmlns:local="clr-namespace:Inspection"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
-      d:DesignHeight="1080" d:DesignWidth="1920"
+      d:DesignHeight="980" d:DesignWidth="1920"
       Title="SearchPage">
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="46*"/>
-            <ColumnDefinition Width="705*"/>
-            <ColumnDefinition Width="46*"/>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="80"/>
         </Grid.ColumnDefinitions>
 
         <materialDesign:Card Grid.Column="1">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
-                    <RowDefinition Height="90*" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
                 <materialDesign:Card Grid.Row="0" Width="Auto" Height="Auto">
                     <StackPanel>
-                        <Viewbox MaxHeight="100">
-                            <Grid Cursor="">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-
-                                <TextBox Grid.Column="0" materialDesign:HintAssist.FloatingScale="0.50" 
+                        <StackPanel Margin="70,0,0,0" Orientation="Horizontal" HorizontalAlignment="Center">
+                            
+                                <TextBox  materialDesign:HintAssist.FloatingScale="0.50"
+                                 FontSize="20"
                                  materialDesign:HintAssist.Hint="Поиск" 
                                  materialDesign:HintAssist.FloatingHintHorizontalAlignment="Center" 
                                  materialDesign:TextFieldAssist.TextBoxViewMargin="1 0 1 0"
-                                 materialDesign:TextFieldAssist.HasLeadingIcon="True"
-                                 materialDesign:TextFieldAssist.LeadingIcon="AccountSearch"
                                  HorizontalAlignment="Center" VerticalAlignment="Center"
                                  MinWidth="200" 
                                  HorizontalContentAlignment="Center"
                                  Margin="5"
                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
 
-                                <Button Grid.Column="1" Margin="10" Background="Transparent" Click="Button_Click">
-                                    <materialDesign:PackIcon Kind="Magnify" />
-                                    <Button.Triggers>
-                                        <EventTrigger RoutedEvent="Button.Click">
-                                            <BeginStoryboard>
-                                                <Storyboard>
-                                                    <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" To="LightBlue" Duration="0:0:0.1"/>
-                                                    <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" To="Transparent" BeginTime="0:0:0.1" Duration="0:0:0.1"/>
-                                                </Storyboard>
-                                            </BeginStoryboard>
-                                        </EventTrigger>
-                                    </Button.Triggers>
-                                </Button>
+                            <Button Width="50" HorizontalContentAlignment="Right" Margin="5" Height="30" Background="Transparent" Click="searchButton_Click">
+                                <materialDesign:PackIcon Kind="Magnify" />
+                                <Button.Triggers>
+                                    <EventTrigger RoutedEvent="Button.Click">
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" To="Tomato" Duration="0:0:0.8"/>
+                                                <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" To="Transparent" BeginTime="0:0:1" Duration="0:0:0.1"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                </Button.Triggers>
+                            </Button>
+                        </StackPanel>
+                        
+                        
 
-                            </Grid>
-                        </Viewbox>
 
-                        <Expander Grid.Row="1" HorizontalAlignment="Stretch" materialDesign:ExpanderAssist.ExpanderButtonPosition="End" >
+                        <Expander Grid.Row="1" HorizontalAlignment="Stretch" materialDesign:ExpanderAssist.ExpanderButtonPosition="Start" >
                             
                             <Expander.Header>
-                                <TextBlock Text="Настройки поиска" HorizontalAlignment="Center" Margin="10,0,0,0"  />
+                                <TextBlock Text="Настройки поиска" FontSize="20"
+                                           HorizontalAlignment="Center" Margin="10,0,0,0"  />
                             </Expander.Header>
                             
                             <StackPanel Margin="24,8,24,16" Orientation="Vertical" >
-                                <TextBlock Text="сюда пихаем кнопки :) " HorizontalAlignment="Center" />
+                                <Grid>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="15*"/>
+                                        <ColumnDefinition Width="85*"/>
+                                    </Grid.ColumnDefinitions>
+                                    
+                                    <StackPanel Grid.Column="0" Margin="4" Orientation="Vertical">
+                                        <RadioButton x:Name="SettingAlternativePeople"
+                                            Margin="4" Content="Физ. лицо" IsChecked="True" Style="{StaticResource MaterialDesignTabRadioButtonRight}" Click="SettingAlternative" />
+                                        <RadioButton x:Name="SettingAlternativeCompani"
+                                            Margin="4" Content="Юр. лицо" IsChecked="False" Style="{StaticResource MaterialDesignTabRadioButtonRight}" Click="SettingAlternative"/>
+                                        <RadioButton x:Name="SettingAlternativeProperty"
+                                            Margin="4" Content="Недвижимость" IsChecked="False" Style="{StaticResource MaterialDesignTabRadioButtonRight}" Click="SettingAlternative"/>
+                                        <RadioButton x:Name="SettingAlternativeTransport"
+                                            Margin="4" Content="ТС" IsChecked="False" Style="{StaticResource MaterialDesignTabRadioButtonRight}" Click="SettingAlternative"/>
+                                    </StackPanel>
+
+                                    <!--Поднастройка для поиска человека-->
+                                    <StackPanel x:Name="settingSearchPeople" Grid.Column="1" Margin="4" Orientation="Horizontal" 
+                                                Visibility="Collapsed">
+                                        <StackPanel Orientation="Vertical" Margin="3">
+                                            <TextBlock Text="   Выводимые данные" FontSize="20"/>
+                                            <CheckBox Content="Дата рождения" 
+                                                      x:Name="PeopleBirtsdayEnable"
+                                                      IsChecked="False" FontSize="20"/>
+                                            <CheckBox Content="Прописка" 
+                                                      x:Name="PeopleaddressEnable"
+                                                      IsChecked="False" FontSize="20"/>
+                                            <CheckBox Content="Номер телефона" 
+                                                      x:Name="PeopleTelephoneEnable"
+                                                      IsChecked="False" FontSize="20"/>
+                                            <CheckBox Content="email" 
+                                                      x:Name="PeopleEmailEnable"
+                                                      IsChecked="False" FontSize="20"/>
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Vertical" Margin="3">
+                                            <TextBlock Text="" FontSize="20"/>
+                                            <CheckBox Content="Имеет задолжность" Click="PeopleTaxEnable_Click"
+                                                      x:Name="PeopleTaxEnable"
+                                                      IsChecked="False" FontSize="20"/>
+                                            <CheckBox Content="Явл. руководителем" 
+                                                      x:Name="PeopleIsСhiefEnable"
+                                                      IsChecked="False" FontSize="20"/>
+                                        </StackPanel>
+                                        
+                                        <!--Задолжность интервал-->
+                                        <StackPanel Margin="3" Orientation="Vertical">
+                                            <TextBlock Text="Задолжность(тыс):" FontSize="20"/>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Margin="15,0,10,0" Text="от" FontSize="25"/>
+                                                <TextBox x:Name="PeopleUpTaxTextBox" FontSize="20" MinWidth="120" Width="auto" IsEnabled="False"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                                                <TextBlock Margin="15,0,10,0" Text="до" FontSize="25"/>
+                                                <TextBox x:Name="PeopleDownTaxTextBox" FontSize="20" MinWidth="120" Width="auto" IsEnabled="False"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </StackPanel>
+                                    
+                                    <!--Поднастройка для поиска компании-->
+                                    <StackPanel x:Name="settingSearchCompani" Grid.Column="1" Margin="4" Orientation="Horizontal" 
+                                                        Visibility="Collapsed">
+                                        <StackPanel Orientation="Vertical" Margin="3">
+                                            <TextBlock Text="   Выводимые данные" FontSize="20"/>
+                                            <CheckBox Content="название" 
+                                                      x:Name="CompaniNameEnable"
+                                                      IsChecked="False" FontSize="20"/>
+                                            <CheckBox Content="адрес" 
+                                                      x:Name="CompaniAdresEnable"
+                                                      IsChecked="False" FontSize="20"/>
+                                            <CheckBox Content="телефон" 
+                                                      x:Name="CompaniTelephoneEnable"
+                                                      IsChecked="False" FontSize="20"/>
+                                            <CheckBox Content="email" 
+                                                      x:Name="CompaniEmailEnable"
+                                                      IsChecked="False" FontSize="20"/>
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Vertical" Margin="3">
+                                            <TextBlock Text="" FontSize="20"/>
+                                            <CheckBox Content="кол. недвижимости" 
+                                                      x:Name="CompaniKolPropertyEnable"
+                                                      IsChecked="False" FontSize="20"/>
+                                            <CheckBox Content="кол. тс" 
+                                                      x:Name="CompaniKolTransportEnable"
+                                                      IsChecked="False" FontSize="20"/>
+                                            <CheckBox Content="сумма долга" Click="CompaniTaxEnable_Click"
+                                                      x:Name="CompaniTaxEnable"
+                                                      IsChecked="False" FontSize="20"/>
+                                            <CheckBox Content="руководитель" 
+                                                      x:Name="CompaniChiefPeopleEnable"
+                                                      IsChecked="False" FontSize="20"/>
+                                        </StackPanel>
+                                        
+                                        <!--Задолжность интервал-->
+                                        <StackPanel Margin="3" Orientation="Vertical">
+                                            <TextBlock Text="Задолжность(тыс):" FontSize="20"/>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Margin="15,0,10,0" Text="от" FontSize="25"/>
+                                                <TextBox x:Name="CompaniUpTaxTextBox"  FontSize="20" MinWidth="120" Width="auto" IsEnabled="False"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                                                <TextBlock Margin="15,0,10,0" Text="до" FontSize="25"/>
+                                                <TextBox x:Name="CompaniDownTaxTextBox" FontSize="20" MinWidth="120" Width="auto" IsEnabled="False"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </StackPanel>
+                                    
+                                    <!--Поднастройка для поиска недвижимости-->
+                                    <StackPanel x:Name="settingSearchProperty" Grid.Column="1" Margin="4" Orientation="Horizontal" 
+                                                        Visibility="Collapsed">
+                                        <StackPanel Orientation="Vertical" Margin="3">
+                                            <TextBlock Text="   Выводимые данные" FontSize="20"/>
+                                            <CheckBox Content="владелец" 
+                                                      x:Name="PropertyOwnerEnable"
+                                                      IsChecked="False" FontSize="20"/>
+                                            <CheckBox Content="тип" 
+                                                      x:Name="PropertyTypeEnable"
+                                                      IsChecked="False" FontSize="20"/>
+                                            <CheckBox Content="адрес" 
+                                                      x:Name="PropertyAdresEnable"
+                                                      IsChecked="False" FontSize="20"/>
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Vertical" Margin="3">
+                                            <TextBlock Text="" FontSize="20"/>
+                                            <CheckBox Content="площадь" Click="PropertySizeEnable_Click"
+                                                      x:Name="PropertySizeEnable"
+                                                      IsChecked="False" FontSize="20"/>
+                                            <CheckBox Content="стоимость" Click="PropertyPriceEnable_Click"
+                                                      x:Name="PropertyPriceEnable"
+                                                      IsChecked="False" FontSize="20"/>
+                                        </StackPanel>
+                                        
+                                        <!-- Стоимость настройка -->
+                                        <StackPanel Margin="3" Orientation="Vertical">
+                                            <TextBlock Text="Стоимость:" FontSize="20"/>
+                                            <StackPanel Orientation="Horizontal"> 
+                                                <TextBlock Margin="15,0,10,0" Text="от" FontSize="25"/>
+                                                <TextBox x:Name="PropertyUpPriceTextBox"
+                                                    FontSize="20" MinWidth="120" Width="auto" IsEnabled="False"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                                                <TextBlock Margin="15,0,10,0" Text="до" FontSize="25"/>
+                                                <TextBox x:Name="PropertyDownPriceTextBox"
+                                                    FontSize="20" MinWidth="120" Width="auto" IsEnabled="False"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                        
+                                        <!-- Площадь настройка -->
+                                        <StackPanel Margin="3" Orientation="Vertical">
+                                            <TextBlock Text="Площадь:" FontSize="20"/>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Margin="15,0,10,0" Text="от" FontSize="25"/>
+                                                <TextBox x:Name="PropertyUpSizeTextBox"
+                                                    FontSize="20" MinWidth="120" Width="auto" IsEnabled="False"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                                                <TextBlock Margin="15,0,10,0" Text="до" FontSize="25"/>
+                                                <TextBox x:Name="PropertyDownSizeTextBox"
+                                                    FontSize="20" MinWidth="120" Width="auto" IsEnabled="False"/>
+                                            </StackPanel>
+                                        </StackPanel>
+
+                                    </StackPanel>
+
+                                    <!--Поднастройка для поиска тс-->
+                                    <StackPanel x:Name="settingSearchTransport" Grid.Column="1" Margin="4" Orientation="Horizontal" 
+                                            Visibility="Collapsed">
+                                        <StackPanel Orientation="Vertical" Margin="3">
+                                            <TextBlock Text="   Выводимые данные" FontSize="20"/>
+                                            <CheckBox Content="владелец" 
+                                                      x:Name="TransportOwnerEnable"
+                                                      IsChecked="False" FontSize="20"/>
+                                            <CheckBox Content="тип" 
+                                                      x:Name="TransportTypeEnable"
+                                                      IsChecked="False" FontSize="20"/>
+                                            <CheckBox Content="год. выпуска" IsChecked="False" FontSize="20"/>
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Vertical" Margin="3">
+                                            <TextBlock Text="" FontSize="20"/>
+                                            <CheckBox Content="марка" 
+                                                      x:Name="TransportBrandEnable"
+                                                      IsChecked="False" FontSize="20"/>
+                                            <CheckBox Content="модель" 
+                                                      x:Name="TransportModelEnable"
+                                                      IsChecked="False" FontSize="20"/>
+                                            <CheckBox Content="стоимость" Click="TransportPriceEnable_Click"
+                                                      x:Name="TransportPriceEnable"
+                                                      IsChecked="False" FontSize="20"/>
+                                        </StackPanel>
+
+                                        <!-- Стоимость настройка -->
+                                        <StackPanel Margin="3" Orientation="Vertical">
+                                            <TextBlock Text="Стоимость:" FontSize="20"/>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Margin="15,0,10,0" Text="от" FontSize="25"/>
+                                                <TextBox FontSize="20" 
+                                                         x:Name="TransportUpPriceTextBox"
+                                                         MinWidth="120" Width="auto" IsEnabled="False"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                                                <TextBlock Margin="15,0,10,0" Text="до" FontSize="25"/>
+                                                <TextBox 
+                                                    x:Name="TransportDownPriceTextBox"
+                                                    FontSize="20" MinWidth="120" Width="auto" IsEnabled="False"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                        
+                                    </StackPanel>
+                                </Grid>
                             </StackPanel>
                             
                         </Expander>
@@ -77,7 +286,6 @@
                 </materialDesign:Card>
 
                 <DataGrid Grid.Row="1" x:Name="myDataGrid"
-                          
                           Background="{DynamicResource PrimaryHueDarkBrush}" 
                           materialDesign:DataGridAssist.SelectedCellBorderBrush="Crimson"
                           IsReadOnly="True" 
@@ -85,7 +293,10 @@
                           materialDesign:DataGridAssist.CellPadding="4 2 2 2"
                           materialDesign:DataGridAssist.ColumnHeaderPadding="4 2 2 2"
                           CanUserAddRows="False" 
-                          CanUserSortColumns="True" />
+                          CanUserSortColumns="False" />
+
+   
+
             </Grid>
         </materialDesign:Card>
         

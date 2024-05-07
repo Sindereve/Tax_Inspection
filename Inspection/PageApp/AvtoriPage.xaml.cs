@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Inspection.Date;
+using System;
+using System.Data;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Inspection.PageApp
 {
@@ -20,17 +14,62 @@ namespace Inspection.PageApp
     /// </summary>
     public partial class AvtoriPage : Page
     {
-        public AvtoriPage(){
+
+        private DataBase db; // Поле для хранения экземпляра класса DataBase
+
+        public AvtoriPage()
+        {
             InitializeComponent();
+
+            // Получаем экземпляр класса DataBase
+            db = DataBase.GetInstance();
         }
 
-
+        //выход из приложения
         private void ExitButton_Click(object sender, RoutedEventArgs e){
             Application.Current.Shutdown();
         }
 
-        private void AvtoriButton_Click(object sender, RoutedEventArgs e){
-            NavigationService.Navigate(new MainPage());
+        //кнопка авторизации
+        private void AvtoriButton_Click(object sender, RoutedEventArgs e)
+        {
+            string login = LoginTextBox.Text;
+            string password = PasswordTextBox.Password;
+
+            DataTable table = new DataTable();
+            table = db.Request($"SELECT password,login FROM WORKER WHERE login = '{login}' and password = '{password}' ");
+            
+            if (table.Rows.Count == 1)
+            {
+                UserWorking.Login = login;
+                NavigationService.Navigate(new MainPage());
+            }
+            else
+            {
+                IsErrorLoginOrPasswordAsync();
+            }
         }
+
+        //событие при неправильном вводе данных
+        private async void IsErrorLoginOrPasswordAsync()
+        {
+            
+            await Task.Run(() =>
+            {
+                Dispatcher.Invoke((Action)(() =>
+                {
+                    ErrorLoginOrPassword.IsActive = true;
+                }));
+                Thread.Sleep(10000);
+                Dispatcher.Invoke((Action)(() =>
+                {
+                    ErrorLoginOrPassword.IsActive = false;
+                }));
+            });
+            
+
+        }
+
+
     }
 }

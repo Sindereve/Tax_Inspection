@@ -1,0 +1,78 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\sinde\\Desktop\\Inspection\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FC724B43-831F-4A74-93C4-BFA27DC3D773}|Inspection\\Inspection.csproj|c:\\users\\sinde\\desktop\\inspection\\inspection\\pageapp\\searchpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{FC724B43-831F-4A74-93C4-BFA27DC3D773}|Inspection\\Inspection.csproj|solutionrelative:inspection\\pageapp\\searchpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC724B43-831F-4A74-93C4-BFA27DC3D773}|Inspection\\Inspection.csproj|C:\\Users\\sinde\\Desktop\\Inspection\\inspection\\pageapp\\searchpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC724B43-831F-4A74-93C4-BFA27DC3D773}|Inspection\\Inspection.csproj|solutionrelative:inspection\\pageapp\\searchpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC724B43-831F-4A74-93C4-BFA27DC3D773}|Inspection\\Inspection.csproj|C:\\Users\\sinde\\Desktop\\Inspection\\inspection\\date\\data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC724B43-831F-4A74-93C4-BFA27DC3D773}|Inspection\\Inspection.csproj|solutionrelative:inspection\\date\\data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SearchPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\sinde\\Desktop\\Inspection\\Inspection\\PageApp\\SearchPage.xaml.cs",
+              "RelativeDocumentMoniker": "Inspection\\PageApp\\SearchPage.xaml.cs",
+              "ToolTip": "C:\\Users\\sinde\\Desktop\\Inspection\\Inspection\\PageApp\\SearchPage.xaml.cs",
+              "RelativeToolTip": "Inspection\\PageApp\\SearchPage.xaml.cs",
+              "ViewState": "AQIAAGMAAAAAAAAAAAAAAHYAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-03T04:10:40.925Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Data.cs",
+              "DocumentMoniker": "C:\\Users\\sinde\\Desktop\\Inspection\\Inspection\\Date\\Data.cs",
+              "RelativeDocumentMoniker": "Inspection\\Date\\Data.cs",
+              "ToolTip": "C:\\Users\\sinde\\Desktop\\Inspection\\Inspection\\Date\\Data.cs",
+              "RelativeToolTip": "Inspection\\Date\\Data.cs",
+              "ViewState": "AQIAADYAAAAAAAAAAAAawEYAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-03T12:04:52.122Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SearchPage.xaml",
+              "DocumentMoniker": "C:\\Users\\sinde\\Desktop\\Inspection\\Inspection\\PageApp\\SearchPage.xaml",
+              "RelativeDocumentMoniker": "Inspection\\PageApp\\SearchPage.xaml",
+              "ToolTip": "C:\\Users\\sinde\\Desktop\\Inspection\\Inspection\\PageApp\\SearchPage.xaml",
+              "RelativeToolTip": "Inspection\\PageApp\\SearchPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-05-03T04:10:25.94Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

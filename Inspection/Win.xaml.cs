@@ -1,19 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Windows.Media.Animation;
+﻿using System.Windows;
 using Inspection.PageApp;
+using Inspection.Helpers;
 
 
 namespace Inspection
@@ -23,11 +10,15 @@ namespace Inspection
     /// </summary>
     public partial class Win : Window
     {
-        public Win(){
+        public Win()
+        {
             InitializeComponent();
             MainFrame.Content = new AvtoriPage();
-        }
+            matDesWpfThemeChanger.IsDarkThemeEnabled = !matDesWpfThemeChanger.IsDarkThemeEnabled;
 
-        
+            // Изменяем иконку
+            // Применяем выбранную тему
+            matDesWpfThemeChanger.ApplyTheme(matDesWpfThemeChanger.IsDarkThemeEnabled);
+        }
     }
 }

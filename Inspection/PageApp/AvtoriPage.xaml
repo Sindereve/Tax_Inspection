@@ -6,88 +6,70 @@
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:Inspection"
       mc:Ignorable="d" 
-      d:DesignHeight="720" d:DesignWidth="1080"
+      d:DesignHeight="1080" d:DesignWidth="1920"
       Title="Avtori">
 
     <!-- основной грид -->
     <materialDesign:Card>
         <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="30*"/>
-                <RowDefinition Height="40*"/>
-                <RowDefinition Height="30*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="25*"/>
-                <ColumnDefinition Width="50*"/>
-                <ColumnDefinition Width="25*"/>
-            </Grid.ColumnDefinitions>
-
-
 
             <Button
-            Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Top"
-              Content="X"
-              IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-              Style="{StaticResource MaterialDesignFlatDarkBgButton}"
-              ToolTip="MaterialDesignFlatDarkButton" Background="#FFDC0303" BorderBrush="#FF2F0101" Click="ExitButton_Click" Height="32" Width="41"/>
-
+Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Top"
+  Content="X"
+  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+  Style="{StaticResource MaterialDesignFlatDarkBgButton}"
+  ToolTip="MaterialDesignFlatDarkButton" Background="#FFDC0303" BorderBrush="#FF2F0101" Click="ExitButton_Click" Height="32" Width="41"/>
 
             <!-- Центральная панель для авторизации -->
-            <Border x:Name="MyBorder" Grid.Row="1" Grid.Column="1" Background="White" BorderBrush="DarkGray" BorderThickness="1" CornerRadius="20" Padding="20">
-            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MaxWidth="{Binding ActualWidth, ElementName=MyBorder}" MaxHeight="{Binding ActualHeight, ElementName=MyBorder}" Cursor="">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="20*" x:Name="SizeGrid"/>
-                    <RowDefinition Height="20*"/>
-                        <RowDefinition Height="20*"/>
-                        <RowDefinition Height="20*"/>
-                </Grid.RowDefinitions>
-
-                <Viewbox Grid.Row="0" >
-                    <TextBlock Grid.Row="0" Text="Авторизация" FontFamily="Arial Black" 
-                    FontWeight="Bold" TextAlignment="Center"/>
-                </Viewbox>
-
-                <!-- Поля для ввода логина и пароля -->
-                <Viewbox Grid.Row="1">
-                    <TextBox  x:Name="txtUsername"
-                        MinWidth="300"
-                        materialDesign:TextFieldAssist.HasClearButton="True" materialDesign:HintAssist.Hint="Login" 
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                </Viewbox>
-
-                <Viewbox Grid.Row="2" >
-                    <PasswordBox Grid.Row="2" x:Name="txtPassword" 
-                                 MinWidth="300"
-                                 materialDesign:HintAssist.Hint="Password"
-                                 materialDesign:TextFieldAssist.HasClearButton="True" 
-                                 IsEnabled="{Binding IsChecked, ElementName=RevealPasswordFilledEnabled}"
-                                 Style="{StaticResource MaterialDesignFloatingHintRevealPasswordBox}"/>
-                </Viewbox>
-
-                <Grid Grid.Row="4">
+            <Border x:Name="MyBorder" Grid.Row="1" Grid.Column="1" Background="White" BorderBrush="DarkGray" BorderThickness="1" CornerRadius="20" Padding="20"
+                    HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MaxWidth="{Binding ActualWidth, ElementName=MyBorder}" MaxHeight="{Binding ActualHeight, ElementName=MyBorder}" Cursor="">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="5*"/>
-                        <RowDefinition Height="30*"/>
-                        <RowDefinition Height="5*"/>
+                        <RowDefinition Height="130"/>
+                        <RowDefinition Height="86"/>
+                        <RowDefinition Height="86"/>
+                        <RowDefinition Height="86"/>
                     </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="10*"/>
-                        <ColumnDefinition Width="15*"/>
-                        <ColumnDefinition Width="10*"/>
-                    </Grid.ColumnDefinitions>
-                    <Viewbox Grid.Column="1" Grid.Row="1" Stretch="Fill">
-                        <Button Content="Вход" HorizontalAlignment="Center" Click="AvtoriButton_Click"
-                                 materialDesign:RippleAssist.Feedback="#DD000000"
-                                 FontSize="20"
-                                 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                                 Style="{StaticResource MaterialDesignRaisedSecondaryButton}" 
-                                 ToolTip="Resource name: MaterialDesignRaisedSecondaryButton" FontFamily="Times New Roman" FontWeight="Normal" />
-                    </Viewbox>
+
+                    <TextBlock Grid.Row="0" FontSize="90"
+                               Text="Авторизация" FontFamily="Arial Black" FontWeight="Bold" TextAlignment="Center"/>
+
+                    <TextBox x:Name="LoginTextBox"
+                        Grid.Row="1"  MinWidth="300" FontSize="30"
+                             materialDesign:HintAssist.FloatingHintHorizontalAlignment="Center"
+                             HorizontalContentAlignment="Center"
+                             materialDesign:TextFieldAssist.HasClearButton="True" 
+                             materialDesign:TextFieldAssist.LeadingIconSize="30"
+                             materialDesign:HintAssist.Hint="Login" 
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+
+
+                    <PasswordBox x:Name="PasswordTextBox"
+                        Grid.Row="2"
+                                 MinWidth="300" FontSize="30" 
+                                 HorizontalContentAlignment="Center"
+                                 materialDesign:HintAssist.Hint="Password"
+                                 materialDesign:HintAssist.FloatingHintHorizontalAlignment="Center"
+                                 materialDesign:TextFieldAssist.HasClearButton="True" 
+                                 materialDesign:TextFieldAssist.LeadingIconSize="30"
+                                 IsEnabled="{Binding IsChecked, ElementName=RevealPasswordFilledEnabled}"
+                                 Style="{StaticResource MaterialDesignFloatingHintRevealPasswordBox}" Cursor=""/>
+                    
+
+                    <Button Grid.Row="3" Content="Вход" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                          Click="AvtoriButton_Click" 
+                          materialDesign:RippleAssist.Feedback="#DD000000"
+                          FontSize="30" Width="160" Height="50"
+                          IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                          Style="{StaticResource MaterialDesignFlatButton}"
+                          ToolTip="MaterialDesignFlatButton" 
+                          FontFamily="Times New Roman" FontWeight="Normal" Cursor="Hand"/>
                 </Grid>
-            </Grid>
-        </Border>
-        
+            </Border>
+
+            
+            <materialDesign:Snackbar x:Name="ErrorLoginOrPassword" FontSize="25" IsActive="False" Message="НЕ верно введён логин или пароль" />
+            
         </Grid>
     </materialDesign:Card>
 </Page>

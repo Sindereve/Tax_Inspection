@@ -11,8 +11,8 @@
     <!-- основной грид -->
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="10*"/>
-            <RowDefinition Height="90*"/>
+            <RowDefinition Height="130"/>
+            <RowDefinition Height="950"/>
         </Grid.RowDefinitions>
         
 
@@ -21,10 +21,10 @@
 
                 <Grid>
                     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Viewbox>
-                            <TextBlock DockPanel.Dock="Left" VerticalAlignment="Center" HorizontalAlignment="Center" 
-                                   Text="Главная страница" />
-                        </Viewbox>
+                        
+                            <TextBlock DockPanel.Dock="Left" FontSize="80" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                                   Text="Рабочее пространство" />
+                        
                     </Grid>
 
                     
@@ -33,18 +33,19 @@
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        
+
+
                         <Button IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                                 Style="{StaticResource MaterialDesignFloatingActionSecondaryButton}" Click="ToggleThemeButton_Click"
-                                ToolTip="MaterialDesignFloatingActionSecondaryButton">
-                            <Viewbox>
-                                <materialDesign:PackIcon x:Name="ThemeButtonIcon" VerticalAlignment="Center"
-                                Kind="LampOutline" Margin="5" Cursor=""/>
-                            </Viewbox>
-
+                                ToolTip="MaterialDesignFloatingActionSecondaryButton" Grid.Column="0" Cursor="Hand">
+                            <materialDesign:PackIcon x:Name="ThemeButtonIcon" VerticalAlignment="Center"
+                                Kind="LampOutline" Width="40" Height="40"/>
                         </Button>
+                        
+
                         <materialDesign:PopupBox Grid.Column="1" PlacementMode="BottomAndAlignRightEdges">
                             <ListBox>
+                                <TextBlock x:Name="loginUser" Text="Login пользователя"/>
                                 <ListBoxItem PreviewMouseDown="ListBoxItem_PreviewMouseDown">
                                     <TextBlock Text="Сменить пользователя"/>
                                 </ListBoxItem>
@@ -54,6 +55,8 @@
                             </ListBox>
                         </materialDesign:PopupBox>
                     </Grid>
+                    
+                    
                 </Grid>
                 
             </materialDesign:ColorZone>
@@ -61,18 +64,16 @@
 
         <Grid Grid.Row="1">
             <materialDesign:Card>
-                <TabControl x:Name="MainMenu" materialDesign:NavigationRailAssist.ShowSelectionBackground="True" SnapsToDevicePixels="True" Style="{StaticResource MaterialDesignNavigationRailTabControl}" TabStripPlacement="Left">       
+                <TabControl x:Name="MainMenu" materialDesign:NavigationRailAssist.ShowSelectionBackground="True" SnapsToDevicePixels="True" Style="{StaticResource MaterialDesignNavigationRailTabControl}" TabStripPlacement="Left">
                     <TabItem>
                         <TabItem.Header>
                             <StackPanel Width="auto" Height="auto">
                                 <materialDesign:PackIcon Width="24" Height="24" HorizontalAlignment="Center" Kind="Magnify"/>
-                                <Viewbox>
-                                    <TextBlock HorizontalAlignment="Center" Text="Поиск" Margin="5" />
-                                </Viewbox>
+                                <TextBlock HorizontalAlignment="Center" Text="Поиск" Margin="5" />
                             </StackPanel>
                         </TabItem.Header>
                         <Grid>
-                            <Frame x:Name="searchPage" HorizontalAlignment="Stretch" />
+                            <Frame x:Name="searchPage" HorizontalAlignment="Stretch"/>
                         </Grid>
                     </TabItem>
 
@@ -80,16 +81,15 @@
                         <TabItem.Header>
                             <StackPanel Width="auto" Height="auto">
                                 <materialDesign:PackIcon Width="24" Height="24" HorizontalAlignment="Center" Kind="CogOutline"/>
-                                <Viewbox>
-                                    <TextBlock HorizontalAlignment="Center" Text="Настройки" Margin="5" />
-                                </Viewbox>
+                                <TextBlock HorizontalAlignment="Center" FontSize="11" Text="Настройки" Margin="5" />
                             </StackPanel>
                         </TabItem.Header>
                         <StackPanel>
-                            
+
                         </StackPanel>
                     </TabItem>
 
+                    
                 </TabControl>
             </materialDesign:Card>
         </Grid>

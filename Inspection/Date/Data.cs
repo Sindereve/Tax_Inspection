@@ -4,31 +4,88 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
+using Microsoft.Data.SqlClient;
+using System.Data;
+using System.Windows.Forms;
 
 namespace Inspection.Date
 {
-    public class Person
+    public class DataBase
     {
-        public string Name { get; set; }
-        public int Age { get; set; }
+        //Приватное статическое поле для хранения единственного экземпляра класса
+        private static DataBase instance;
+        //строка с найстройками подключение
+        string connectionString;
+        //название БД
+        string BDName = "Inspection";
+        //Обьект подключения
+        SqlConnection connection = null;
 
-        public ObservableCollection<Person> dataSet()
+
+        public DataBase()
         {
-            // Создание коллекции объектов
-            ObservableCollection<Person> people = new ObservableCollection<Person>();
+            connectionString = $"Server={Environment.MachineName}\\SQLEXPRESS;Database={BDName};Trusted_Connection=True;TrustServerCertificate = True;";
+        }
 
-            // Добавление объектов в коллекцию
-            people.Add(new Person { Name = "Иван", Age = 30 });
-            people.Add(new Person { Name = "Мария", Age = 25 });
-            people.Add(new Person { Name = "Петр", Age = 35 });
-            for (int i = 1; i <= 100; i++)
+        // Метод для получения единственного экземпляра класса DataBase
+        public static DataBase GetInstance()
+        {
+            // Создаем экземпляр класса, если он еще не был создан
+            if (instance == null)
             {
-                people.Add(new Person { Name = $"Человек {i}", Age = i });
+                instance = new DataBase();
             }
+            return instance;
+        }
 
-            return people;
+        
+        // Подключение к БД
+        private void Connect()
+        {
+            try
+            {
+                connection = new SqlConnection(connectionString);
+                connection.Open();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+
+        // Отключение от базы данных
+        private void Disconnect()
+        {
+            connection.Close();
+        }
+
+
+        //принимаем запрос, выводим таблицу
+        public DataTable Request(string querystring)
+        {
+            Connect();
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            DataTable table = new DataTable();
+            SqlCommand command = new SqlCommand(querystring, connection);
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+            Disconnect();
+            return table;
         }
     }
 
     
+    public static class UserWorking
+    {
+        private static string login = "Null";
+
+        // пример kozlova_tv
+        //логин пользователя
+        public static string Login { 
+            get { return login; }
+            set { login = value; }
+        }
+    }
+    
+
 }
