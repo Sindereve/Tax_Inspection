@@ -65,7 +65,7 @@
         <Grid Grid.Row="1">
             <materialDesign:Card>
                 <TabControl x:Name="MainMenu" materialDesign:NavigationRailAssist.ShowSelectionBackground="True" SnapsToDevicePixels="True" Style="{StaticResource MaterialDesignNavigationRailTabControl}" TabStripPlacement="Left">
-                    <TabItem>
+                    <TabItem Width="70">
                         <TabItem.Header>
                             <StackPanel Width="auto" Height="auto">
                                 <materialDesign:PackIcon Width="24" Height="24" HorizontalAlignment="Center" Kind="Magnify"/>
@@ -80,20 +80,54 @@
                     <TabItem>
                         <TabItem.Header>
                             <StackPanel Width="auto" Height="auto">
-                                <materialDesign:PackIcon Width="24" Height="24" HorizontalAlignment="Center" Kind="CogOutline"/>
-                                <TextBlock HorizontalAlignment="Center" FontSize="11" Text="Настройки" Margin="5" />
+                                <materialDesign:PackIcon Width="24" Height="24" HorizontalAlignment="Center" Kind="PlusCircle"/>
+                                <TextBlock HorizontalAlignment="Center" FontSize="11" Text="Добавление" Margin="5" />
                             </StackPanel>
                         </TabItem.Header>
                         <StackPanel>
-
+                            <Frame x:Name="addPage" Height="950"
+                                   HorizontalAlignment="Stretch"/>
                         </StackPanel>
                     </TabItem>
 
-                    
+                    <TabItem>
+                        <TabItem.Header>
+                            <StackPanel Width="auto" Height="auto">
+                                <materialDesign:PackIcon Width="24" Height="24" 
+                                                         HorizontalAlignment="Center" Kind="InformationVariantCircle"/>
+                                <TextBlock HorizontalAlignment="Center" FontSize="11" Margin="0,5,0,5" TextAlignment="Center">
+                                    Поиск
+                                    <LineBreak/>
+                                    по ИНН
+                                </TextBlock>  
+                            </StackPanel>
+                        </TabItem.Header>
+                        <StackPanel>
+                            <Frame x:Name="searchForINN" Height="950" HorizontalAlignment="Stretch"/>
+                        </StackPanel>
+                    </TabItem>
+
+
+                    <TabItem>
+                        <TabItem.Header>
+                            <StackPanel Width="auto" Height="auto">
+                                <materialDesign:PackIcon Width="24" Height="24" 
+                                     HorizontalAlignment="Center" Kind="ABC"/>
+                                <TextBlock HorizontalAlignment="Center" FontSize="11" Margin="0,5,0,5" TextAlignment="Center">
+                                    Инфо
+                                    <LineBreak/>
+                                    о программе
+                                </TextBlock>
+                            </StackPanel>
+                        </TabItem.Header>
+                        <StackPanel>
+                            <Frame x:Name="infoProm" Height="950" HorizontalAlignment="Stretch"/>
+                        </StackPanel>
+                    </TabItem>
+
+
                 </TabControl>
             </materialDesign:Card>
         </Grid>
-        
-        
     </Grid>
 </Page>

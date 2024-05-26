@@ -10,4 +10,32 @@
     <FallbackCulture>ru-RU</FallbackCulture>
     <VerifyUploadedFiles>false</VerifyUploadedFiles>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Update="PageApp\addPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PageApp\madeFrom.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PageApp\Page1.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PageApp\searchINN.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="PageApp\addPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PageApp\madeFrom.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PageApp\Page1.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PageApp\searchINN.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
 </Project>

@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Inspection"
              xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              StartupUri="Win.xaml">
     <Application.Resources>
@@ -15,6 +16,37 @@
                 <!-- <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml" /> -->
                 <!-- <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" /> -->
                 
+                <ResourceDictionary>
+                <!-- Стиль для MaskedTextBox, основанный на стилях Material Design -->
+                <Style TargetType="xctk:MaskedTextBox">
+                    <Setter Property="Background" Value="{DynamicResource MaterialDesignTextFieldBoxBackground}" />
+                    <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignTextFieldBoxBorder}" />
+                    <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
+                    <Setter Property="FontSize" Value="{DynamicResource MaterialDesignBodyFontSize}" />
+                    <Setter Property="Padding" Value="8,4" />
+                    <Setter Property="Margin" Value="0,8" />
+                    <Setter Property="VerticalContentAlignment" Value="Center" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="xctk:MaskedTextBox">
+                                <Border Background="{TemplateBinding Background}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        CornerRadius="2">
+                                    <TextBox x:Name="PART_TextBox"
+                                             Text="{TemplateBinding Text}"
+                                             Background="Transparent"
+                                             BorderThickness="0"
+                                             Foreground="{TemplateBinding Foreground}"
+                                             FontSize="{TemplateBinding FontSize}"
+                                             Padding="{TemplateBinding Padding}"
+                                             VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+                </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

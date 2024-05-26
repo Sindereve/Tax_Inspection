@@ -5,8 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:Inspection"
-      mc:Ignorable="d" 
-      d:DesignHeight="1080" d:DesignWidth="1920"
+      Height="1080" Width="1920"
       Title="Avtori">
 
     <!-- основной грид -->
@@ -18,7 +17,7 @@ Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Top"
   Content="X"
   IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
   Style="{StaticResource MaterialDesignFlatDarkBgButton}"
-  ToolTip="MaterialDesignFlatDarkButton" Background="#FFDC0303" BorderBrush="#FF2F0101" Click="ExitButton_Click" Height="32" Width="41"/>
+  ToolTip="MaterialDesignFlatDarkButton" Click="ExitButton_Click" Height="32" Width="41"/>
 
             <!-- Центральная панель для авторизации -->
             <Border x:Name="MyBorder" Grid.Row="1" Grid.Column="1" Background="White" BorderBrush="DarkGray" BorderThickness="1" CornerRadius="20" Padding="20"

@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net8.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows7.0</TargetFramework>
     <OutputType>WinExe</OutputType>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
@@ -21,13 +21,21 @@
     <UseWindowsForms>true</UseWindowsForms>
     <UseWPF>true</UseWPF>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+    <ApplicationIcon>ico_main_win.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include=".gitignore" />
+    <Compile Remove="Resourse\**" />
+    <Compile Remove="View\**" />
+    <EmbeddedResource Remove="Resourse\**" />
+    <EmbeddedResource Remove="View\**" />
+    <None Remove="Resourse\**" />
+    <None Remove="View\**" />
+    <Page Remove="Resourse\**" />
+    <Page Remove="View\**" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resourse\" />
-    <Folder Include="View\" />
+    <Content Include=".gitignore" />
+    <Content Include="ico_main_win.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.2">
@@ -44,6 +52,7 @@
   <ItemGroup>
     <PackageReference Include="Azure.Core" Version="1.39.0" />
     <PackageReference Include="Azure.Identity" Version="1.11.2" />
+    <PackageReference Include="Extended.Wpf.Toolkit" Version="4.6.0" />
     <PackageReference Include="MaterialDesignThemes" Version="5.0.0" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.0" />

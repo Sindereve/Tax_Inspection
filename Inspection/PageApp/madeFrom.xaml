@@ -1,0 +1,59 @@
+﻿<Page x:Class="Inspection.PageApp.madeFrom"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Inspection.PageApp"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d"
+      Title="madeFrom" Height="745" Width="1174">
+
+    <Grid>
+        <materialDesign:ColorZone Mode="Inverted" HorizontalAlignment="Center" VerticalAlignment="Center" Width="825" CornerRadius="20" Padding="20">
+            <StackPanel Orientation="Vertical">
+                <TextBlock FontSize="40" Margin="10" FontWeight="Bold" FontStyle="Italic">
+                            О программе
+                </TextBlock>
+                
+                <TextBlock FontSize="20" FontStyle="Italic" TextAlignment="Justify" Margin="10">
+                        Добро пожаловать в программу управления налогоплательщиками.
+                    <LineBreak />
+                        Данное программное обеспечение разработано для автоматизации работы с<LineBreak />
+                    налогоплательщиками и облегчения взаимодействия с налоговой инспекцией.
+                    <LineBreak />
+                    <LineBreak />
+                        Функциональные возможности:
+                    <LineBreak />
+                        - Получение списков всех налогоплательщиков.
+                    <LineBreak />
+                        - Поиск налогоплательщиков по ИНН.
+                    <LineBreak />
+                        - Добавление новых налогоплательщиков в базу данных.
+                    <LineBreak />
+                        - Изменение информации о существующих налогоплательщиках.
+                    <LineBreak />
+                    <LineBreak />
+                        Технические особенности:
+                    <LineBreak />
+                     - Программа контактирует с SQL Server для хранения и обработки данных.
+                    <LineBreak />
+                     - Интуитивно понятный интерфейс для быстрого доступа к информации.
+                    <LineBreak />
+                     - Встроенные механизмы проверки данных предотвращают ошибки ввода,<LineBreak />
+                    обеспечивая точность и целостность информации.
+                    <LineBreak />
+                    <LineBreak />
+                    __Версия приложения: 1.0
+                    <LineBreak />
+                    <LineBreak />
+                        Разработано: Синдерев А.А.____________email(sindereve850live@gmail.com)
+                    <LineBreak />
+                        Руководитель: Тлегенова Т.Е.___________X
+                    <LineBreak />
+
+
+                </TextBlock>
+            </StackPanel>
+        </materialDesign:ColorZone>
+    </Grid>
+</Page>

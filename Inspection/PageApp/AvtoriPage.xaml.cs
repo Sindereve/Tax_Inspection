@@ -33,13 +33,12 @@ namespace Inspection.PageApp
         //кнопка авторизации
         private void AvtoriButton_Click(object sender, RoutedEventArgs e)
         {
+            //NavigationService.Navigate(new MainPage());
+
             string login = LoginTextBox.Text;
             string password = PasswordTextBox.Password;
 
-            DataTable table = new DataTable();
-            table = db.Request($"SELECT password,login FROM WORKER WHERE login = '{login}' and password = '{password}' ");
-            
-            if (table.Rows.Count == 1)
+            if (db.avtoriRequest("WORKER", login, password))
             {
                 UserWorking.Login = login;
                 NavigationService.Navigate(new MainPage());
@@ -50,7 +49,7 @@ namespace Inspection.PageApp
             }
         }
 
-        //событие при неправильном вводе данных
+        //событие при неправильном вводе ИНН для поиска 
         private async void IsErrorLoginOrPasswordAsync()
         {
             
@@ -60,15 +59,16 @@ namespace Inspection.PageApp
                 {
                     ErrorLoginOrPassword.IsActive = true;
                 }));
+
                 Thread.Sleep(10000);
+
                 Dispatcher.Invoke((Action)(() =>
                 {
                     ErrorLoginOrPassword.IsActive = false;
                 }));
             });
-            
-
         }
+
 
 
     }

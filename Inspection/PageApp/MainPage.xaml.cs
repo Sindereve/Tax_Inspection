@@ -6,6 +6,8 @@ using System.Windows.Input;
 using System.Windows.Navigation;
 using Inspection.Helpers;
 using Inspection.Date;
+using System.Threading.Tasks;
+using System.Threading;
 
 
 namespace Inspection.PageApp
@@ -21,10 +23,20 @@ namespace Inspection.PageApp
         {
             InitializeComponent();
             // Задаём цвет согласно темы
-            // TODO MainMenu is no longer supported. Use MenuStrip instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-                        this.Background = MainMenu.Background;
-            // Открываем стр поиска
-            searchPage.Source = new Uri("SearchPage.xaml", UriKind.Relative);
+            this.Background = MainMenu.Background;
+            //закрепляем стр за frame 
+
+            System.Uri searchPageClass = new Uri("SearchPage.xaml", UriKind.Relative);
+            System.Uri addPageClass = new Uri("addPage.xaml", UriKind.Relative);
+            System.Uri searchForINNClass = new Uri("searchINN.xaml", UriKind.Relative);
+            System.Uri madeFr = new Uri("madeFrom.xaml", UriKind.Relative);
+
+            searchPage.Source = searchPageClass;
+            addPage.Source = addPageClass;
+            searchForINN.Source = searchForINNClass;
+            infoProm.Source = madeFr;
+
+
             // Получаем экземпляр класса DataBase
             db = DataBase.GetInstance();
             // Прописываем log юзера
@@ -89,12 +101,16 @@ namespace Inspection.PageApp
             else this.ThemeButtonIcon.Kind = PackIconKind.Lamp;
             // Применяем выбранную тему
             matDesWpfThemeChanger.ApplyTheme(matDesWpfThemeChanger.IsDarkThemeEnabled);
-            // TODO MainMenu is no longer supported. Use MenuStrip instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            
+
+            object i1 = searchPage.Height.ToString();
+            object i2 =  searchPage.Width.ToString();
+
             this.Background = MainMenu.Background;
         }
 
 
-
+       
 
         
 

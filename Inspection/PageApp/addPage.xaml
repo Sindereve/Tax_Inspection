@@ -1,0 +1,630 @@
+﻿<Page x:Class="Inspection.PageApp.addPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Inspection.PageApp"
+      xmlns:behaviors="clr-namespace:NumberBox"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+      Title="addPage">
+    <ScrollViewer x:Name="scrllVwr">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="1" VerticalAlignment="Stretch">
+                <!--Добавление физ лица-->
+                <materialDesign:Flipper HorizontalAlignment="Center" Visibility="Visible">
+                    <materialDesign:Flipper.FrontContent>
+                        <StackPanel>
+                            <Button Width="500" Margin="8" Command="{x:Static materialDesign:Flipper.FlipCommand}" Content="Физическое лицо" Style="{StaticResource MaterialDesignFlatButton}"/>
+                        </StackPanel>
+                    </materialDesign:Flipper.FrontContent>
+
+                    <materialDesign:Flipper.BackContent>
+                        <StackPanel>
+                            <Grid>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <materialDesign:ColorZone Padding="6" Mode="SecondaryMid">
+                                <StackPanel Orientation="Horizontal">
+                                    <Button HorizontalAlignment="Left" Command="{x:Static materialDesign:Flipper.FlipCommand}" Style="{StaticResource MaterialDesignToolForegroundButton}">
+                                        <materialDesign:PackIcon HorizontalAlignment="Right" Kind="ArrowLeft" />
+                                    </Button>
+                                    <TextBlock FontSize="30" Margin="8,0,8,0" VerticalAlignment="Center" Text="Добавление физ. лица" />
+                                </StackPanel>
+                            </materialDesign:ColorZone>
+
+                            <Grid Grid.Row="1" Width="500" HorizontalAlignment="Center" VerticalAlignment="Top">
+
+                                <StackPanel Orientation="Vertical">
+
+                                    <StackPanel x:Name="errorPeopleStackPanel" Visibility="Collapsed"
+                                                HorizontalAlignment="Center">
+                                        <materialDesign:ColorZone
+                                                                  Background="DarkRed" Foreground="White"
+                                                                  materialDesign:ElevationAssist.Elevation="Dp4"
+                                                                  ClipToBounds="False"
+                                                                  CornerRadius="0,0,10,10">
+                                            <TextBlock x:Name="errorPeopleText" Text="Не верно введены данные!" Margin="5"
+                                                           FontSize="20" VerticalAlignment="Center"/>
+                                        </materialDesign:ColorZone>
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBox x:Name="lastNameBox" 
+                                        FontSize="25" MinWidth="140" Margin="15,5,5,5" materialDesign:HintAssist.Hint="Фамилия" materialDesign:HintAssist.IsFloating="True" />
+                                        <TextBox x:Name="nameBox"
+                                        FontSize="25" MinWidth="140" Margin="5" materialDesign:HintAssist.Hint="Имя" materialDesign:HintAssist.IsFloating="True"/>
+                                        <TextBox x:Name="middleNameBox"
+                                        FontSize="25" MinWidth="140" Margin="5" materialDesign:HintAssist.Hint="Отчество" materialDesign:HintAssist.IsFloating="True"/>
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal">
+                                        <DatePicker x:Name="birthdayBox"
+                                                FontSize="25" MinWidth="140"
+                                                Margin="15,5,5,5" 
+                                                Language="Ru-ru"
+                                                materialDesign:CalendarAssist.IsHeaderVisible="True" 
+                                                materialDesign:HintAssist.IsFloating="True"
+                                                materialDesign:HintAssist.Hint="Дата рождения"/>
+                                    </StackPanel>
+
+                                    <StackPanel>
+                                        <TextBox x:Name="addressBox" 
+                                             FontSize="25" MinWidth="140" Margin="15,5,5,5" 
+                                             materialDesign:HintAssist.Hint="Адрес" 
+                                             materialDesign:HintAssist.IsFloating="True" />
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal">
+
+                                        <xctk:MaskedTextBox x:Name="telephonMaskBox" Mask="+7 (000) 000-00-00"
+                                                        Margin="15,5,5,5" FontSize="25" MinWidth="140"
+                                                        materialDesign:HintAssist.Hint="Номер телефона" 
+                                                        materialDesign:HintAssist.IsFloating="True"
+                                                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+
+                                        <TextBox x:Name="emailBox"
+                                             Margin="5" FontSize="25" MinWidth="140" 
+                                             materialDesign:HintAssist.Hint="email" 
+                                             materialDesign:HintAssist.IsFloating="True"/>
+
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal">
+                                        <CheckBox x:Name="innChiefCompaniInPeopleBox" Content="Является руководителем существующей компании" 
+                                              Style="{StaticResource MaterialDesignCheckBox}" Margin="20,0,0,5" Click="innChiefCompaniInPeopleBox_Click"/>
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal">
+                                        <xctk:MaskedTextBox x:Name="innChiefCompaniInPeopleMaskfBox" Mask="000000000000" Visibility="Collapsed" 
+                                                            Margin="15,2,2,10" FontSize="25" MinWidth="140"
+                                                            materialDesign:HintAssist.Hint="ИНН" 
+                                                            materialDesign:HintAssist.IsFloating="True"
+                                                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal">
+                                        <CheckBox x:Name="innPeopleCheсkBox" Content="Уже имеет ИНН"
+                                              Click="innPeopleCheсkBox_Click"
+                                              Margin="20,0,0,5"
+                                              Style="{StaticResource MaterialDesignCheckBox}"/>
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal">
+                                        <xctk:MaskedTextBox x:Name="innPeopleMaskfBox" Mask="000000000000" Visibility="Collapsed" 
+                                                        Margin="15,2,2,10" FontSize="25" MinWidth="140"
+                                                        materialDesign:HintAssist.Hint="ИНН" 
+                                                        materialDesign:HintAssist.IsFloating="True"
+                                                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                                    </StackPanel>
+
+                                    <StackPanel>
+
+                                        <Button x:Name="updatePeopleButton" Click="savePeopleButton_Click"
+                                                Content="Сохранить"
+                                            HorizontalAlignment="Right" Margin="5"
+                                            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
+                                            Style="{StaticResource MaterialDesignFlatSecondaryMidBgButton}"  
+                                            ToolTip="MaterialDesignFlatSecondaryLightBgButton"/>
+
+
+                                        <StackPanel x:Name="updatePeopleStackPanel" Visibility="Collapsed"
+                                            Orientation="Horizontal" HorizontalAlignment="Right">
+                                            <ProgressBar 
+                                                x:Name="updatePeopleProgressBar"
+                                                HorizontalAlignment="Right" Margin="5,5,5,5"
+                                                IsIndeterminate="True"
+                                                Style="{StaticResource MaterialDesignCircularProgressBar}"
+                                                Value="55" />
+                                            <TextBlock
+                                                Margin="5,5,30,5"
+                                                Text="Сохранение"
+                                                VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                            <materialDesign:Snackbar x:Name="completedDataPeopleSnackBar" FontSize="20" IsActive="False" Message="Данные успешно сохранены" />
+                        </Grid>
+                        </StackPanel>
+                    </materialDesign:Flipper.BackContent>
+
+                </materialDesign:Flipper>
+
+                <!--Добавление юр лица-->
+                <materialDesign:Flipper HorizontalAlignment="Center" Visibility="Visible">
+
+                    <materialDesign:Flipper.FrontContent>
+                        <Button Width="500" Margin="8" 
+                            Command="{x:Static materialDesign:Flipper.FlipCommand}" 
+                            Content="Юридическое лицо" Style="{StaticResource MaterialDesignFlatButton}"/>
+                    </materialDesign:Flipper.FrontContent>
+
+                    <materialDesign:Flipper.BackContent>
+                        <Grid>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <materialDesign:ColorZone Padding="6" Mode="SecondaryMid">
+                                <StackPanel Orientation="Horizontal">
+                                    <Button HorizontalAlignment="Left" Command="{x:Static materialDesign:Flipper.FlipCommand}" Style="{StaticResource MaterialDesignToolForegroundButton}">
+                                        <materialDesign:PackIcon HorizontalAlignment="Right" Kind="ArrowLeft" />
+                                    </Button>
+                                    <TextBlock FontSize="30" Margin="8,0,8,0" VerticalAlignment="Center" Text="Добавление юридического лица" />
+                                </StackPanel>
+                            </materialDesign:ColorZone>
+
+                            <Grid Grid.Row="1" Width="500" HorizontalAlignment="Center" VerticalAlignment="Top">
+                                <StackPanel  Orientation="Vertical">
+
+                                    <StackPanel x:Name="errorCompaniStackPanel" Visibility="Collapsed"
+                                                HorizontalAlignment="Center">
+                                        <materialDesign:ColorZone
+                                                              Background="DarkRed" Foreground="White"
+                                                              materialDesign:ElevationAssist.Elevation="Dp4"
+                                                              ClipToBounds="False"
+                                                              CornerRadius="0,0,10,10">
+                                            <TextBlock x:Name="errorCompaniText" Text="Не верно введены данные!" Margin="5"
+                                                       FontSize="20" VerticalAlignment="Center"/>
+                                        </materialDesign:ColorZone>
+                                    </StackPanel>
+                                    
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBox x:Name="nameCompaniBox"
+                                             Margin="15,5,5,5" FontSize="25" MinWidth="140"
+                                             materialDesign:HintAssist.Hint="Название"
+                                             materialDesign:HintAssist.IsFloating="True" />
+                                    </StackPanel>
+
+                                    <StackPanel>
+                                        <TextBox x:Name="addressCompaniBox"
+                                                 Margin="15,5,5,5" FontSize="25" MinWidth="140"
+                                                 materialDesign:HintAssist.Hint="Адрес"
+                                                 materialDesign:HintAssist.IsFloating="True"/>
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal">
+                                        <xctk:MaskedTextBox x:Name="telephoneCompaniMaskBox" Mask="+7 (000) 000-00-00"
+                                                        Margin="15,5,5,5" FontSize="25" MinWidth="140"
+                                                        materialDesign:HintAssist.Hint="Номер телефона" 
+                                                        materialDesign:HintAssist.IsFloating="True"
+                                                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                                        <TextBox x:Name="emailCompaniBox" 
+                                             Margin="5" FontSize="25" MinWidth="140"
+                                             materialDesign:HintAssist.Hint="email" 
+                                             materialDesign:HintAssist.IsFloating="True" />
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal">
+                                        <xctk:MaskedTextBox x:Name="innChiefCompaniMaskfBox" Mask="000000000000"
+                                                            Margin="15,2,2,10" FontSize="25" MinWidth="140"
+                                                            materialDesign:HintAssist.Hint="ИНН руководителя"
+                                                            materialDesign:HintAssist.IsFloating="True"
+                                                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal">
+                                        <CheckBox x:Name="innCompaniCheсkBox" Content="Уже имеет ИНН"
+                                                  Click="innCompaniCheсkBox_Click"
+                                                  Margin="20,0,0,5"
+                                                  Style="{StaticResource MaterialDesignCheckBox}"/>
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal">
+                                        <xctk:MaskedTextBox x:Name="innCompaniMaskfBox" Mask="000000000000" Visibility="Collapsed" 
+                                                            Margin="15,2,2,10" FontSize="25" MinWidth="140"
+                                                            materialDesign:HintAssist.Hint="ИНН" 
+                                                            materialDesign:HintAssist.IsFloating="True"
+                                                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                                    </StackPanel>
+
+                                    <StackPanel>
+                                        <Button x:Name="updateCompaniButton" Click="saveCompaniButton_Click"
+                                            HorizontalAlignment="Right" 
+                                            Content="Сохранить" Margin="5"        
+                                            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                            Style="{StaticResource MaterialDesignFlatSecondaryMidBgButton}"  
+                                            ToolTip="MaterialDesignFlatSecondaryLightBgButton" />
+
+                                        <StackPanel x:Name="updateCompaniStackPanel" Visibility="Collapsed"
+                                                    Orientation="Horizontal" HorizontalAlignment="Right">
+                                            <ProgressBar x:Name="updateCompaniProgressBar"
+                                                        HorizontalAlignment="Right" Margin="5,5,5,5"
+                                                        IsIndeterminate="True"
+                                                        Style="{StaticResource MaterialDesignCircularProgressBar}"
+                                                        Value="55" />
+                                            <TextBlock Margin="5,5,30,5"
+                                                       Text="Сохранение"
+                                                       VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                            <materialDesign:Snackbar x:Name="completedDataCompaniSnackBar" FontSize="20" IsActive="False" Message="Данные успешно сохранены" />
+                        </Grid>
+                    </materialDesign:Flipper.BackContent>
+                </materialDesign:Flipper>
+
+                <!--Добавление недвижимости-->
+                <materialDesign:Flipper HorizontalAlignment="Center" Visibility="Visible">
+
+                    <materialDesign:Flipper.FrontContent>
+                        <Button Content="Недвижимость"
+                                Width="500" Margin="8"
+                                Command="{x:Static materialDesign:Flipper.FlipCommand}" 
+                                Style="{StaticResource MaterialDesignFlatButton}"/>
+                    </materialDesign:Flipper.FrontContent>
+
+                    <materialDesign:Flipper.BackContent>
+                        <Grid>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <materialDesign:ColorZone Padding="6" Mode="SecondaryMid">
+                                <StackPanel Orientation="Horizontal">
+                                    <Button HorizontalAlignment="Left" Command="{x:Static materialDesign:Flipper.FlipCommand}" Style="{StaticResource MaterialDesignToolForegroundButton}">
+                                        <materialDesign:PackIcon HorizontalAlignment="Right" Kind="ArrowLeft" />
+                                    </Button>
+                                    <TextBlock FontSize="30" Margin="8,0,8,0" VerticalAlignment="Center" Text="Добавление недвижимости" />
+                                </StackPanel>
+                            </materialDesign:ColorZone>
+
+                            <Grid Grid.Row="1" Width="500" HorizontalAlignment="Center" VerticalAlignment="Top">
+
+                                <StackPanel Orientation="Vertical">
+
+                                    <StackPanel x:Name="errorPropertyStackPanel" Visibility="Collapsed"
+                                                HorizontalAlignment="Center">
+                                        <materialDesign:ColorZone
+                                                                  Background="DarkRed" Foreground="White"
+                                                                  materialDesign:ElevationAssist.Elevation="Dp4"
+                                                                  ClipToBounds="False"
+                                                                  CornerRadius="0,0,10,10">
+                                            <TextBlock x:Name="errorPropertyText" Text="Не верно введены данные!" Margin="5"
+                                                       FontSize="20" VerticalAlignment="Center"/>
+                                        </materialDesign:ColorZone>
+                                    </StackPanel>
+                                    
+                                    <StackPanel Orientation="Horizontal">
+
+                                        <xctk:MaskedTextBox x:Name="innOwnerPropertyMaskBox" Mask="000000000000"
+                                                            Margin="15,5,5,5" FontSize="25" MinWidth="140"
+                                                            materialDesign:HintAssist.Hint="ИНН владельца" 
+                                                            materialDesign:HintAssist.IsFloating="True"
+                                                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+
+                                    </StackPanel>
+
+                                    <StackPanel>
+                                        <TextBox x:Name="addressPropertyBox"
+                                                 Margin="15,5,5,5" FontSize="25" MinWidth="140"
+                                                 materialDesign:HintAssist.Hint="Адрес"
+                                                 materialDesign:HintAssist.IsFloating="True"/>
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBox x:Name="typePropertyBox"
+                                                 Margin="15,5,5,5" FontSize="25" MinWidth="140"
+                                                 materialDesign:HintAssist.Hint="Тип"
+                                                 materialDesign:HintAssist.IsFloating="True"/>
+
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal">
+
+                                        <TextBox x:Name="sizePropertyBox" 
+                                                 Margin="15,5,5,5" FontSize="25" MinWidth="140"
+                                                 Text="{Binding NumberBox}"
+                                                 behaviors:NumericTextBoxBehavior.IsNumeric="True"
+                                                 materialDesign:HintAssist.Hint="Площадь"
+                                                 materialDesign:HintAssist.IsFloating="True"/>
+
+                                        <TextBox x:Name="prisePropertyBox"
+                                                 Margin="5" FontSize="25" MinWidth="140"
+                                                 Text="{Binding NumberBox}"
+                                                 behaviors:NumericTextBoxBehavior.IsNumeric="True"
+                                                 materialDesign:HintAssist.Hint="Стоимость"
+                                                 materialDesign:HintAssist.IsFloating="True"/>
+
+                                    </StackPanel>
+
+                                    <StackPanel>
+                                        <Button x:Name="updatePropertyButton"
+                                                Click="savePropertyButton_Click"
+                                                HorizontalAlignment="Right" 
+                                                Content="Сохранить" Margin="5"        
+                                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                                Style="{StaticResource MaterialDesignFlatSecondaryMidBgButton}"
+                                                ToolTip="MaterialDesignFlatSecondaryLightBgButton" />
+
+                                        <StackPanel x:Name="updatePropertyStackPanel" Visibility="Collapsed"
+                                                    Orientation="Horizontal" HorizontalAlignment="Right">
+                                            <ProgressBar x:Name="updatePropertyProgressBar"
+                                                        HorizontalAlignment="Right" Margin="5,5,5,5"
+                                                        IsIndeterminate="True"
+                                                        Style="{StaticResource MaterialDesignCircularProgressBar}"
+                                                        Value="55" />
+                                            <TextBlock Margin="5,5,30,5"
+                                                       Text="Сохранение"
+                                                       VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </StackPanel>
+
+                                </StackPanel>
+
+
+
+                            </Grid>
+                            <materialDesign:Snackbar x:Name="completedDataPropertySnackBar" FontSize="20" IsActive="False" Message="Данные успешно сохранены" />
+                        </Grid>
+                    </materialDesign:Flipper.BackContent>
+                </materialDesign:Flipper>
+
+                <!--Добавление ТС-->
+                <materialDesign:Flipper HorizontalAlignment="Center" Visibility="Visible">
+
+                    <materialDesign:Flipper.FrontContent>
+                        <Button Content="Транспортные средства"
+                                Width="500" Margin="8"
+                                Command="{x:Static materialDesign:Flipper.FlipCommand}" 
+                                Style="{StaticResource MaterialDesignFlatButton}"/>
+                    </materialDesign:Flipper.FrontContent>
+
+                    <materialDesign:Flipper.BackContent>
+                        <Grid>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <materialDesign:ColorZone Padding="6" Mode="SecondaryMid">
+                                <StackPanel Orientation="Horizontal">
+                                    <Button HorizontalAlignment="Left" Command="{x:Static materialDesign:Flipper.FlipCommand}" Style="{StaticResource MaterialDesignToolForegroundButton}">
+                                        <materialDesign:PackIcon HorizontalAlignment="Right" Kind="ArrowLeft" />
+                                    </Button>
+                                    <TextBlock FontSize="30" Margin="8,0,8,0" VerticalAlignment="Center" Text="Добавление ТС" />
+                                </StackPanel>
+                            </materialDesign:ColorZone>
+
+                            <Grid Grid.Row="1" Width="500" HorizontalAlignment="Center" VerticalAlignment="Top">
+                                <StackPanel Orientation="Vertical">
+
+                                    <StackPanel x:Name="errorTransportStackPanel" Visibility="Collapsed"
+                                                HorizontalAlignment="Center">
+                                        <materialDesign:ColorZone
+                                                                  Background="DarkRed" Foreground="White"
+                                                                  materialDesign:ElevationAssist.Elevation="Dp4"
+                                                                  ClipToBounds="False"
+                                                                  CornerRadius="0,0,10,10">
+                                            <TextBlock x:Name="errorTransportText" Text="Не верно введены данные!" Margin="5"
+                                                       FontSize="20" VerticalAlignment="Center"/>
+                                        </materialDesign:ColorZone>
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal">
+                                        <xctk:MaskedTextBox x:Name="innOwnerTransportMaskBox" Mask="000000000000"
+                                            Margin="15,5,5,5" FontSize="25" MinWidth="140"
+                                            materialDesign:HintAssist.Hint="ИНН владельца" 
+                                            materialDesign:HintAssist.IsFloating="True"
+                                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal">
+
+                                        <TextBox x:Name="brandTransportBox"
+                                                 Margin="15,5,5,5" FontSize="25" MinWidth="140"
+                                                 materialDesign:HintAssist.Hint="Марка"
+                                                 materialDesign:HintAssist.IsFloating="True"/>
+
+                                        <TextBox x:Name="modelTransportBox"
+                                                 Margin="5" FontSize="25" MinWidth="140"
+                                                 materialDesign:HintAssist.Hint="Модель"
+                                                 materialDesign:HintAssist.IsFloating="True"/>
+
+                                    </StackPanel>
+
+                                    <StackPanel>
+                                        <TextBox x:Name="typeTransportBox"
+                                                 Margin="15,5,5,5" FontSize="25" MinWidth="140"
+                                                 materialDesign:HintAssist.Hint="Тип"
+                                                 materialDesign:HintAssist.IsFloating="True"/>
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal">
+
+                                        <TextBox x:Name="priseTransportBox"
+                                                 Margin="15,5,5,5" FontSize="25" MinWidth="140"
+                                                 Text="{Binding NumberBox}"
+                                                 behaviors:NumericTextBoxBehavior.IsNumeric="True"
+                                                 materialDesign:HintAssist.Hint="Стоимость"
+                                                 materialDesign:HintAssist.IsFloating="True"/>
+
+                                        <TextBox x:Name="yearTransportBox" 
+                                                 Margin="5" FontSize="25" MinWidth="140"
+                                                 PreviewTextInput="yearTransport_PreviewTextInput"
+                                                 materialDesign:HintAssist.Hint="Год производства"
+                                                 materialDesign:HintAssist.IsFloating="True"/>
+
+                                    </StackPanel>
+
+                                    <StackPanel>
+                                        <Button x:Name="updateTransportButton" Click="saveTransportButton_Click"
+                                                HorizontalAlignment="Right" 
+                                                Content="Сохранить" Margin="5"        
+                                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                                Style="{StaticResource MaterialDesignFlatSecondaryMidBgButton}"
+                                                ToolTip="MaterialDesignFlatSecondaryLightBgButton" />
+                                        <StackPanel x:Name="updateTransportStackPanel" Visibility="Collapsed"
+                                                    Orientation="Horizontal" HorizontalAlignment="Right">
+                                            <ProgressBar x:Name="updateTransportProgressBar"
+                                                        HorizontalAlignment="Right" Margin="5,5,5,5"
+                                                        IsIndeterminate="True"
+                                                        Style="{StaticResource MaterialDesignCircularProgressBar}"
+                                                        Value="55" />
+                                            <TextBlock Margin="5,5,30,5"
+                                                       Text="Сохранение"
+                                                       VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </StackPanel>
+
+                                </StackPanel>
+                            </Grid>
+                            <materialDesign:Snackbar x:Name="completedDataTransportSnackBar" FontSize="20" IsActive="False" Message="Данные успешно сохранены" />
+                        </Grid>
+                    </materialDesign:Flipper.BackContent>
+                </materialDesign:Flipper>
+
+                <!--Добавление НАЛОГА-->
+                <materialDesign:Flipper HorizontalAlignment="Center" Visibility="Visible">
+
+                    <materialDesign:Flipper.FrontContent>
+                        <Button Content="Налоги"
+                                Width="500" Margin="8"
+                                Command="{x:Static materialDesign:Flipper.FlipCommand}" 
+                                Style="{StaticResource MaterialDesignFlatButton}"/>
+                    </materialDesign:Flipper.FrontContent>
+
+                    <materialDesign:Flipper.BackContent>
+                        <Grid>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <materialDesign:ColorZone Padding="6" Mode="SecondaryMid">
+                                <StackPanel Orientation="Horizontal">
+                                    <Button HorizontalAlignment="Left" Command="{x:Static materialDesign:Flipper.FlipCommand}" Style="{StaticResource MaterialDesignToolForegroundButton}">
+                                        <materialDesign:PackIcon HorizontalAlignment="Right" Kind="ArrowLeft" />
+                                    </Button>
+                                    <TextBlock FontSize="30" Margin="8,0,8,0" VerticalAlignment="Center" Text="Добавление налога" />
+                                </StackPanel>
+                            </materialDesign:ColorZone>
+
+                            <Grid Grid.Row="1" Width="500" HorizontalAlignment="Center" VerticalAlignment="Top">
+                                <StackPanel Orientation="Vertical">
+
+                                    <StackPanel x:Name="errorTaxStackPanel" Visibility="Collapsed"
+                                                HorizontalAlignment="Center">
+                                        <materialDesign:ColorZone
+                                                                  Background="DarkRed" Foreground="White"
+                                                                  materialDesign:ElevationAssist.Elevation="Dp4"
+                                                                  ClipToBounds="False"
+                                                                  CornerRadius="0,0,10,10">
+                                            <TextBlock x:Name="errorTaxText" Text="Не верно введены данные!" Margin="5"
+                                                       FontSize="20" VerticalAlignment="Center"/>
+                                        </materialDesign:ColorZone>
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal">
+                                        <xctk:MaskedTextBox x:Name="innOwnerTaxMaskBox" Mask="000000000000"
+                                                            Margin="15,5,5,5" FontSize="25" MinWidth="140"
+                                                            materialDesign:HintAssist.Hint="ИНН" 
+                                                            materialDesign:HintAssist.IsFloating="True"
+                                                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal">
+
+                                        <TextBox x:Name="sumTaxBox"
+                                                 Margin="15,5,5,5" FontSize="25" MinWidth="140"
+                                                 Text="{Binding NumberBox}"
+                                                 behaviors:NumericTextBoxBehavior.IsNumeric="True"
+                                                 materialDesign:HintAssist.Hint="Сумма"
+                                                 materialDesign:HintAssist.IsFloating="True"/>
+
+                                        <TextBox x:Name="statusTaxBox"
+                                                 Margin="5" FontSize="25" MinWidth="140"
+                                                 materialDesign:HintAssist.Hint="Статус"
+                                                 materialDesign:HintAssist.IsFloating="True"/>
+                                       
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal">
+                                        <DatePicker x:Name="dataTaxPicker" 
+                                                    FontSize="25" MinWidth="140"
+                                                    Margin="15,5,5,5" 
+                                                    Language="Ru-ru"
+                                                    materialDesign:CalendarAssist.IsHeaderVisible="True" 
+                                                    materialDesign:HintAssist.IsFloating="True"
+                                                    materialDesign:HintAssist.Hint="Дата создания налога"/>
+                                    </StackPanel>
+
+                                    <StackPanel>
+                                        <TextBox x:Name="typeTaxBox"
+                                                 Margin="15,5,5,5" FontSize="25" MinWidth="140"
+                                                 materialDesign:HintAssist.Hint="Тип"
+                                                 materialDesign:HintAssist.IsFloating="True"/>
+                                    </StackPanel>
+
+                                    <StackPanel>
+                                        <Button x:Name="updateTaxButton" Click="saveTaxButton_Click"
+                                                HorizontalAlignment="Right" 
+                                                Content="Сохранить" Margin="5"        
+                                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                                Style="{StaticResource MaterialDesignFlatSecondaryMidBgButton}"
+                                                ToolTip="MaterialDesignFlatSecondaryLightBgButton" />
+                                        <StackPanel x:Name="updateTaxStackPanel" Visibility="Collapsed"
+                                                    Orientation="Horizontal" HorizontalAlignment="Right">
+                                            <ProgressBar x:Name="updateTaxProgressBar"
+                                                        HorizontalAlignment="Right" Margin="5,5,5,5"
+                                                        IsIndeterminate="True"
+                                                        Style="{StaticResource MaterialDesignCircularProgressBar}"
+                                                        Value="55" />
+                                            <TextBlock Margin="5,5,30,5"
+                                                       Text="Сохранение"
+                                                       VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </StackPanel>
+
+                                </StackPanel>
+                            </Grid>
+                            <materialDesign:Snackbar x:Name="completedDataTaxSnackBar" FontSize="20" IsActive="False" Message="Данные успешно сохранены" />
+                        </Grid>
+                    </materialDesign:Flipper.BackContent>
+                </materialDesign:Flipper>
+
+            </StackPanel>
+
+        </Grid>
+    </ScrollViewer>
+</Page>

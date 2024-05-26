@@ -77,3 +77,5 @@ C:\Users\sinde\Desktop\Inspection\Inspection\obj\Debug\net8.0-windows\refint\Ins
 C:\Users\sinde\Desktop\Inspection\Inspection\obj\Debug\net8.0-windows\Inspection.pdb
 C:\Users\sinde\Desktop\Inspection\Inspection\obj\Debug\net8.0-windows\Inspection.genruntimeconfig.cache
 C:\Users\sinde\Desktop\Inspection\Inspection\obj\Debug\net8.0-windows\ref\Inspection.dll
+C:\Users\sinde\Desktop\Inspection\Inspection\obj\Debug\net8.0-windows\PageApp\addPage.g.cs
+C:\Users\sinde\Desktop\Inspection\Inspection\obj\Debug\net8.0-windows\PageApp\addPage.baml

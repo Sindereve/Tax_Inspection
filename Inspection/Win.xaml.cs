@@ -1,7 +1,8 @@
 ﻿using System.Windows;
 using Inspection.PageApp;
 using Inspection.Helpers;
-
+using System.Globalization;
+using System.Threading;
 
 namespace Inspection
 {
@@ -15,6 +16,7 @@ namespace Inspection
             InitializeComponent();
             MainFrame.Content = new AvtoriPage();
             matDesWpfThemeChanger.IsDarkThemeEnabled = !matDesWpfThemeChanger.IsDarkThemeEnabled;
+            
 
             // Изменяем иконку
             // Применяем выбранную тему
